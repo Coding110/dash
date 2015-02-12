@@ -4,7 +4,7 @@ $nav = "profile";
 if(isset($_REQUEST['nav'])){
 	$nav = $_REQUEST['nav'];
 }
-echo "<h2>nav: ".$nav."</h2>";
+//echo "<h2>nav: ".$nav."</h2>";
 //echo home_url();
 
 if($nav == "code"){
