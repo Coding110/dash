@@ -1,0 +1,1040 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: guardian\n"
+"POT-Creation-Date: 2014-09-11 18:02+0530\n"
+"PO-Revision-Date: 2014-09-11 18:02+0530\n"
+"Last-Translator: \n"
+"Language-Team: weblizar\n"
+"Language: en_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: ..\n"
+"X-Poedit-SearchPath-2: .\n"
+"X-Poedit-SearchPath-3: ./..\n"
+
+#: ../comment-function.php:12
+msgid "Reply"
+msgstr ""
+
+#: ../comment-function.php:30
+msgid "close"
+msgstr ""
+
+#: ../comment-function.php:31
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../customs/flickr-widget.php:8
+msgid "Displays your latest Flickr photos."
+msgstr ""
+
+#: ../customs/flickr-widget.php:57
+msgid "Flikr PhotoStream"
+msgstr ""
+
+#: ../customs/flickr-widget.php:64
+msgid "Title"
+msgstr ""
+
+#: ../customs/flickr-widget.php:70
+msgid ""
+"Flickr ID (use <a target=\"_blank\" href=\"http://www.idgettr.com\">idGettr</"
+"a>):"
+msgstr ""
+
+#: ../customs/flickr-widget.php:76
+msgid "Number of images to display:"
+msgstr ""
+
+#: ../theme-options/option-panel.php:43
+msgid "View Dash Pro Demo"
+msgstr ""
+
+#: ../theme-options/option-panel.php:44
+msgid "Upgrade to Dash Pro"
+msgstr ""
+
+#: ../theme-options/option-panel.php:47
+#: ../theme-options/option-settings.php:803
+#: ../theme-options/option-settings.php:899
+#: ../theme-options/option-settings.php:997
+#: ../theme-options/option-settings.php:1103
+#: ../theme-options/option-settings.php:1198
+msgid "Features"
+msgstr ""
+
+#: ../theme-options/option-panel.php:49
+#: ../theme-options/option-settings.php:807
+#: ../theme-options/option-settings.php:903
+#: ../theme-options/option-settings.php:1001
+#: ../theme-options/option-settings.php:1107
+#: ../theme-options/option-settings.php:1202
+msgid "Responsive Design"
+msgstr ""
+
+#: ../theme-options/option-panel.php:50
+msgid "More than 15+ Templates"
+msgstr ""
+
+#: ../theme-options/option-panel.php:51
+msgid "12 types Themes Colors Scheme"
+msgstr ""
+
+#: ../theme-options/option-panel.php:52
+msgid "Patterns Background"
+msgstr ""
+
+#: ../theme-options/option-panel.php:53
+msgid "Full Width & Boxed Layout"
+msgstr ""
+
+#: ../theme-options/option-panel.php:59
+#: ../theme-options/option-settings.php:652
+msgid "Touch Slider"
+msgstr ""
+
+#: ../theme-options/option-panel.php:60
+msgid "Ultimate Portfolio layout with Isotope effect"
+msgstr ""
+
+#: ../theme-options/option-panel.php:61
+msgid "Rich Short codes"
+msgstr ""
+
+#: ../theme-options/option-panel.php:62
+msgid "Translation Ready"
+msgstr ""
+
+#: ../theme-options/option-panel.php:63
+#: ../theme-options/option-settings.php:836
+#: ../theme-options/option-settings.php:932
+#: ../theme-options/option-settings.php:1030
+msgid "Coming Soon Mode"
+msgstr ""
+
+#: ../theme-options/option-panel.php:64
+msgid "Google Fonts"
+msgstr ""
+
+#: ../theme-options/option-panel.php:72
+msgid "Dash Theme Settings"
+msgstr ""
+
+#: ../theme-options/option-panel.php:75
+msgid "Documentation"
+msgstr ""
+
+#: ../theme-options/option-panel.php:76
+msgid "Support Forum"
+msgstr ""
+
+#: ../theme-options/option-panel.php:77
+msgid "View Changelog"
+msgstr ""
+
+#: ../theme-options/option-panel.php:85
+msgid "Home Option"
+msgstr ""
+
+#: ../theme-options/option-panel.php:87
+msgid "General Option"
+msgstr ""
+
+#: ../theme-options/option-panel.php:88
+msgid "Slide show Option"
+msgstr ""
+
+#: ../theme-options/option-panel.php:89
+msgid "Service Option"
+msgstr ""
+
+#: ../theme-options/option-panel.php:92
+msgid "Social Media"
+msgstr ""
+
+#: ../theme-options/option-panel.php:93
+msgid "Footer Option"
+msgstr ""
+
+#: ../theme-options/option-panel.php:94
+msgid "Get Premium"
+msgstr ""
+
+#: ../theme-options/option-panel.php:95
+msgid "More Products"
+msgstr ""
+
+#: ../theme-options/option-settings.php:9
+msgid "General Settings"
+msgstr ""
+
+#: ../theme-options/option-settings.php:12
+#: ../theme-options/option-settings.php:161
+#: ../theme-options/option-settings.php:339
+#: ../theme-options/option-settings.php:512
+#: ../theme-options/option-settings.php:593
+msgid "Options Data updated"
+msgstr ""
+
+#: ../theme-options/option-settings.php:13
+#: ../theme-options/option-settings.php:162
+#: ../theme-options/option-settings.php:340
+#: ../theme-options/option-settings.php:513
+#: ../theme-options/option-settings.php:594
+msgid "Options data Reset"
+msgstr ""
+
+#: ../theme-options/option-settings.php:28
+msgid "Theme Skin Layout"
+msgstr ""
+
+#: ../theme-options/option-settings.php:36
+msgid "Theme Skin Schemes"
+msgstr ""
+
+#: ../theme-options/option-settings.php:39
+msgid "Default"
+msgstr ""
+
+#: ../theme-options/option-settings.php:40
+msgid "Green"
+msgstr ""
+
+#: ../theme-options/option-settings.php:41
+msgid "Red"
+msgstr ""
+
+#: ../theme-options/option-settings.php:42
+msgid "Pink"
+msgstr ""
+
+#: ../theme-options/option-settings.php:43
+msgid "Orange"
+msgstr ""
+
+#: ../theme-options/option-settings.php:44
+msgid "Cyan"
+msgstr ""
+
+#: ../theme-options/option-settings.php:45
+msgid "Purple"
+msgstr ""
+
+#: ../theme-options/option-settings.php:46
+msgid "Yellow"
+msgstr ""
+
+#: ../theme-options/option-settings.php:47
+msgid "Bridge"
+msgstr ""
+
+#: ../theme-options/option-settings.php:48
+msgid "Light Blue"
+msgstr ""
+
+#: ../theme-options/option-settings.php:49
+msgid "Dark Red"
+msgstr ""
+
+#: ../theme-options/option-settings.php:50
+msgid "Slate"
+msgstr ""
+
+#: ../theme-options/option-settings.php:51
+msgid "Select color for you theme."
+msgstr ""
+
+#: ../theme-options/option-settings.php:54
+msgid "Theme Layout"
+msgstr ""
+
+#: ../theme-options/option-settings.php:56
+msgid "wide"
+msgstr ""
+
+#: ../theme-options/option-settings.php:57
+msgid "boxed"
+msgstr ""
+
+#: ../theme-options/option-settings.php:59
+msgid "With the Help of box layout you can show sites background"
+msgstr ""
+
+#: ../theme-options/option-settings.php:62
+msgid "Custom background "
+msgstr ""
+
+#: ../theme-options/option-settings.php:94
+msgid "WordPress Custom Background"
+msgstr ""
+
+#: ../theme-options/option-settings.php:96
+msgid "Enable Custom Background .Set background"
+msgstr ""
+
+#: ../theme-options/option-settings.php:96
+#: ../theme-options/option-settings.php:125
+msgid "Click Here"
+msgstr ""
+
+#: ../theme-options/option-settings.php:105
+msgid "Custom Logo"
+msgstr ""
+
+#: ../theme-options/option-settings.php:108
+msgid "Add custom logo from here suggested size is 150X50"
+msgstr ""
+
+#: ../theme-options/option-settings.php:114
+msgid "Logo Height"
+msgstr ""
+
+#: ../theme-options/option-settings.php:116
+msgid ""
+"Default Logo Height : 55px, if you want to increase than specify your value"
+msgstr ""
+
+#: ../theme-options/option-settings.php:119
+msgid "Logo Width"
+msgstr ""
+
+#: ../theme-options/option-settings.php:121
+msgid ""
+"Default Logo Width : 150px, if you want to increase than specify your value"
+msgstr ""
+
+#: ../theme-options/option-settings.php:124
+msgid "Text Title"
+msgstr ""
+
+#: ../theme-options/option-settings.php:125
+msgid "Enable text-based Site Title.   Setup title"
+msgstr ""
+
+#: ../theme-options/option-settings.php:128
+msgid "Custom Favicon"
+msgstr ""
+
+#: ../theme-options/option-settings.php:131
+msgid "Make sure you upload .icon image type which is not more then 25X25 px."
+msgstr ""
+
+#: ../theme-options/option-settings.php:137
+msgid "Custom css"
+msgstr ""
+
+#: ../theme-options/option-settings.php:139
+msgid ""
+"This is a powerful feature provided here. No need to use custom css plugin, "
+"just paste your css code and see the magic."
+msgstr ""
+
+#: ../theme-options/option-settings.php:142
+msgid "Home-Blog Heading"
+msgstr ""
+
+#: ../theme-options/option-settings.php:144
+msgid "Home Blog Heading "
+msgstr ""
+
+#: ../theme-options/option-settings.php:158
+msgid "Slidshow Settings"
+msgstr ""
+
+#: ../theme-options/option-settings.php:176
+msgid "Home Slide 1"
+msgstr ""
+
+#: ../theme-options/option-settings.php:184
+msgid "Home Slide Image One"
+msgstr ""
+
+#: ../theme-options/option-settings.php:187
+msgid "Add Home Slide image here, size suggestion is 1280X450."
+msgstr ""
+
+#: ../theme-options/option-settings.php:191
+msgid "Home Slide Image Title One"
+msgstr ""
+
+#: ../theme-options/option-settings.php:193
+#: ../theme-options/option-settings.php:233
+#: ../theme-options/option-settings.php:280
+msgid "Type Home Slide Image Title Here"
+msgstr ""
+
+#: ../theme-options/option-settings.php:194
+msgid "Home Slide Image Description One"
+msgstr ""
+
+#: ../theme-options/option-settings.php:196
+#: ../theme-options/option-settings.php:238
+#: ../theme-options/option-settings.php:284
+msgid "Type Home Slide Image Description Here"
+msgstr ""
+
+#: ../theme-options/option-settings.php:197
+msgid "Home Slide Image Button Text One"
+msgstr ""
+
+#: ../theme-options/option-settings.php:199
+#: ../theme-options/option-settings.php:244
+#: ../theme-options/option-settings.php:288
+msgid "Type Home Slide Image Button Text Here"
+msgstr ""
+
+#: ../theme-options/option-settings.php:200
+msgid "Home Slide Image Button Link One"
+msgstr ""
+
+#: ../theme-options/option-settings.php:202
+#: ../theme-options/option-settings.php:250
+#: ../theme-options/option-settings.php:292
+msgid "Type Home Slide Image Button Link Here"
+msgstr ""
+
+#: ../theme-options/option-settings.php:215
+msgid "Home Slide 2"
+msgstr ""
+
+#: ../theme-options/option-settings.php:223
+msgid "Home Slide Image Two"
+msgstr ""
+
+#: ../theme-options/option-settings.php:226
+#: ../theme-options/option-settings.php:273
+msgid "Add Home Slide image here, size suggestion is 1400X570."
+msgstr ""
+
+#: ../theme-options/option-settings.php:231
+msgid "Home Slide Image Title Two"
+msgstr ""
+
+#: ../theme-options/option-settings.php:236
+msgid "Home Slide Image Description Two"
+msgstr ""
+
+#: ../theme-options/option-settings.php:242
+msgid "Home Slide Image Button Text Two"
+msgstr ""
+
+#: ../theme-options/option-settings.php:248
+msgid "Home Slide Image Button Link Two"
+msgstr ""
+
+#: ../theme-options/option-settings.php:262
+msgid "Home Slide 3"
+msgstr ""
+
+#: ../theme-options/option-settings.php:270
+msgid "Home Slide Image Three"
+msgstr ""
+
+#: ../theme-options/option-settings.php:278
+msgid "Home Slide Image Title Three"
+msgstr ""
+
+#: ../theme-options/option-settings.php:282
+msgid "Home Slide Image Description Three"
+msgstr ""
+
+#: ../theme-options/option-settings.php:286
+msgid "Home Slide Image Button Text Three"
+msgstr ""
+
+#: ../theme-options/option-settings.php:290
+msgid "Home Slide Image Button Link Three"
+msgstr ""
+
+#: ../theme-options/option-settings.php:306
+msgid "More Slides"
+msgstr ""
+
+#: ../theme-options/option-settings.php:315
+msgid "Add Unlimited slides for your sideshow "
+msgstr ""
+
+#: ../theme-options/option-settings.php:336
+msgid "Service Settings"
+msgstr ""
+
+#: ../theme-options/option-settings.php:350
+#: ../theme-options/option-settings.php:371
+#: ../theme-options/option-settings.php:401
+#: ../theme-options/option-settings.php:430
+#: ../theme-options/option-settings.php:458
+msgid "Service Title"
+msgstr ""
+
+#: ../theme-options/option-settings.php:352
+msgid "Type here your service heading"
+msgstr ""
+
+#: ../theme-options/option-settings.php:355
+#: ../theme-options/option-settings.php:378
+#: ../theme-options/option-settings.php:408
+#: ../theme-options/option-settings.php:437
+#: ../theme-options/option-settings.php:465
+msgid "Service Description"
+msgstr ""
+
+#: ../theme-options/option-settings.php:357
+msgid "Type here your service Description"
+msgstr ""
+
+#: ../theme-options/option-settings.php:364
+msgid "Service one"
+msgstr ""
+
+#: ../theme-options/option-settings.php:373
+#: ../theme-options/option-settings.php:403
+#: ../theme-options/option-settings.php:432
+#: ../theme-options/option-settings.php:460
+msgid "Type here your service title"
+msgstr ""
+
+#: ../theme-options/option-settings.php:374
+#: ../theme-options/option-settings.php:404
+#: ../theme-options/option-settings.php:433
+#: ../theme-options/option-settings.php:461
+msgid "Service  Icons"
+msgstr ""
+
+#: ../theme-options/option-settings.php:377
+#: ../theme-options/option-settings.php:407
+#: ../theme-options/option-settings.php:436
+#: ../theme-options/option-settings.php:464
+msgid "Service Icon (Using Bootstrap icons name) like: fa fa-wordpress"
+msgstr ""
+
+#: ../theme-options/option-settings.php:377
+#: ../theme-options/option-settings.php:407
+#: ../theme-options/option-settings.php:436
+#: ../theme-options/option-settings.php:464
+msgid "Get your Font Awesome icons"
+msgstr ""
+
+#: ../theme-options/option-settings.php:380
+#: ../theme-options/option-settings.php:410
+#: ../theme-options/option-settings.php:439
+#: ../theme-options/option-settings.php:467
+msgid "Type here your service description."
+msgstr ""
+
+#: ../theme-options/option-settings.php:381
+#: ../theme-options/option-settings.php:411
+#: ../theme-options/option-settings.php:440
+#: ../theme-options/option-settings.php:468
+msgid "Service  Link"
+msgstr ""
+
+#: ../theme-options/option-settings.php:383
+#: ../theme-options/option-settings.php:413
+#: ../theme-options/option-settings.php:442
+#: ../theme-options/option-settings.php:470
+msgid "Type here your service link"
+msgstr ""
+
+#: ../theme-options/option-settings.php:393
+msgid "Service Two"
+msgstr ""
+
+#: ../theme-options/option-settings.php:424
+msgid "Service Three"
+msgstr ""
+
+#: ../theme-options/option-settings.php:452
+msgid "Service Four"
+msgstr ""
+
+#: ../theme-options/option-settings.php:482
+msgid "More Services"
+msgstr ""
+
+#: ../theme-options/option-settings.php:490
+msgid "Add More Services on your Home Page."
+msgstr ""
+
+#: ../theme-options/option-settings.php:509
+msgid "Social media"
+msgstr ""
+
+#: ../theme-options/option-settings.php:523
+msgid "Contact Email:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:525
+msgid "Enter Contact email address."
+msgstr ""
+
+#: ../theme-options/option-settings.php:528
+msgid "Contact Phone Number:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:530
+msgid "Enter Contact Phone Number."
+msgstr ""
+
+#: ../theme-options/option-settings.php:533
+msgid "Enable Social media:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:534
+msgid "Enable social media on Header ."
+msgstr ""
+
+#: ../theme-options/option-settings.php:535
+msgid "Enable Social media in Footer ."
+msgstr ""
+
+#: ../theme-options/option-settings.php:538
+msgid "Twitter Link:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:540
+msgid "Enter twitter link."
+msgstr ""
+
+#: ../theme-options/option-settings.php:543
+msgid "Linkedin Links:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:545
+msgid "Enter linkedin link."
+msgstr ""
+
+#: ../theme-options/option-settings.php:549
+msgid "Facebook Links:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:551
+msgid "Enter facebook link."
+msgstr ""
+
+#: ../theme-options/option-settings.php:555
+msgid "Google Plus Links:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:557
+msgid "Enter google plus link."
+msgstr ""
+
+#: ../theme-options/option-settings.php:560
+msgid "Flicker Links:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:562
+msgid "Enter Flicker link."
+msgstr ""
+
+#: ../theme-options/option-settings.php:565
+msgid "You-tube Links:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:567
+msgid "Enter You-tube link."
+msgstr ""
+
+#: ../theme-options/option-settings.php:571
+msgid "RSS Links:"
+msgstr ""
+
+#: ../theme-options/option-settings.php:573
+msgid "Enter RSS link."
+msgstr ""
+
+#: ../theme-options/option-settings.php:590
+msgid "Footer Customization"
+msgstr ""
+
+#: ../theme-options/option-settings.php:604
+msgid "Footer customization"
+msgstr ""
+
+#: ../theme-options/option-settings.php:606
+msgid "Enter your footer customization text "
+msgstr ""
+
+#: ../theme-options/option-settings.php:609
+msgid "Developed by text"
+msgstr ""
+
+#: ../theme-options/option-settings.php:611
+msgid "Enter developed by text"
+msgstr ""
+
+#: ../theme-options/option-settings.php:614
+msgid "Developed by link text"
+msgstr ""
+
+#: ../theme-options/option-settings.php:616
+msgid "Enter developed by link text  "
+msgstr ""
+
+#: ../theme-options/option-settings.php:619
+msgid "Developed by link"
+msgstr ""
+
+#: ../theme-options/option-settings.php:621
+msgid "Enter developed by link"
+msgstr ""
+
+#: ../theme-options/option-settings.php:637
+msgid "Pro Responsive Wordpress Theme"
+msgstr ""
+
+#: ../theme-options/option-settings.php:638
+msgid "Get The Premium"
+msgstr ""
+
+#: ../theme-options/option-settings.php:638
+msgid "in Just"
+msgstr ""
+
+#: ../theme-options/option-settings.php:641
+msgid "Pro And Free Comparison Table"
+msgstr ""
+
+#: ../theme-options/option-settings.php:647
+msgid "Feature"
+msgstr ""
+
+#: ../theme-options/option-settings.php:651
+msgid "Easy to customize"
+msgstr ""
+
+#: ../theme-options/option-settings.php:653
+msgid "Multi Color"
+msgstr ""
+
+#: ../theme-options/option-settings.php:654
+msgid "Boxed & Wide"
+msgstr ""
+
+#: ../theme-options/option-settings.php:655
+msgid "Widgetized Footer"
+msgstr ""
+
+#: ../theme-options/option-settings.php:656
+msgid "Custom Widgets"
+msgstr ""
+
+#: ../theme-options/option-settings.php:657
+msgid "Shortcode"
+msgstr ""
+
+#: ../theme-options/option-settings.php:658
+msgid "Page Templates"
+msgstr ""
+
+#: ../theme-options/option-settings.php:659
+msgid "Quick Support"
+msgstr ""
+
+#: ../theme-options/option-settings.php:660
+msgid "Custom CSS"
+msgstr ""
+
+#: ../theme-options/option-settings.php:661
+msgid "Custom Background"
+msgstr ""
+
+#: ../theme-options/option-settings.php:662
+msgid "Logo & Header text"
+msgstr ""
+
+#: ../theme-options/option-settings.php:663
+msgid "Portfolio Template with Isotop"
+msgstr ""
+
+#: ../theme-options/option-settings.php:664
+msgid "Photobox and Lightbox enable Tamplates"
+msgstr ""
+
+#: ../theme-options/option-settings.php:665
+msgid "Special Gallery Template"
+msgstr ""
+
+#: ../theme-options/option-settings.php:672
+msgid "Free"
+msgstr ""
+
+#: ../theme-options/option-settings.php:684
+msgid "WPORG Support"
+msgstr ""
+
+#: ../theme-options/option-settings.php:693
+msgid "Enjoy Theme"
+msgstr ""
+
+#: ../theme-options/option-settings.php:702
+msgid "Pro"
+msgstr ""
+
+#: ../theme-options/option-settings.php:714
+msgid "Private Support Forum"
+msgstr ""
+
+#: ../theme-options/option-settings.php:722
+msgid "Demo"
+msgstr ""
+
+#: ../theme-options/option-settings.php:723
+msgid "Buy"
+msgstr ""
+
+#: ../theme-options/option-settings.php:760
+#: ../theme-options/option-settings.php:1261
+msgid "View Site"
+msgstr ""
+
+#: ../theme-options/option-settings.php:764
+msgid "Weblizar Responsive Wordpress Theme"
+msgstr ""
+
+#: ../theme-options/option-settings.php:765
+msgid "Get The Premium, And Create your website Beautifully."
+msgstr ""
+
+#: ../theme-options/option-settings.php:770
+msgid "Enigma-Pro"
+msgstr ""
+
+#: ../theme-options/option-settings.php:777
+#: ../theme-options/option-settings.php:873
+#: ../theme-options/option-settings.php:971
+#: ../theme-options/option-settings.php:1077
+#: ../theme-options/option-settings.php:1172
+msgid "View Detail"
+msgstr ""
+
+#: ../theme-options/option-settings.php:800
+msgid "Enigma Pro Theme"
+msgstr ""
+
+#: ../theme-options/option-settings.php:801
+#: ../theme-options/option-settings.php:897
+#: ../theme-options/option-settings.php:995
+#: ../theme-options/option-settings.php:1101
+#: ../theme-options/option-settings.php:1196
+msgid "By"
+msgstr ""
+
+#: ../theme-options/option-settings.php:801
+#: ../theme-options/option-settings.php:1101
+#: ../theme-options/option-settings.php:1196
+msgid "weblizar"
+msgstr ""
+
+#: ../theme-options/option-settings.php:802
+msgid ""
+"Enigma is HTML5 & CSS3 Responsive WordPress Business theme with business "
+"style , 7 blog templates , 6 portfolio templates and many more"
+msgstr ""
+
+#: ../theme-options/option-settings.php:810
+#: ../theme-options/option-settings.php:906
+#: ../theme-options/option-settings.php:1004
+#: ../theme-options/option-settings.php:1136
+#: ../theme-options/option-settings.php:1231
+msgid "Retina Ready"
+msgstr ""
+
+#: ../theme-options/option-settings.php:813
+#: ../theme-options/option-settings.php:909
+#: ../theme-options/option-settings.php:1007
+msgid "Html5 & Css3"
+msgstr ""
+
+#: ../theme-options/option-settings.php:816
+#: ../theme-options/option-settings.php:912
+#: ../theme-options/option-settings.php:1010
+msgid "Multi-purpose Theme"
+msgstr ""
+
+#: ../theme-options/option-settings.php:819
+#: ../theme-options/option-settings.php:915
+#: ../theme-options/option-settings.php:1013
+#: ../theme-options/option-settings.php:1133
+#: ../theme-options/option-settings.php:1228
+msgid "Unlimited Color Schemes"
+msgstr ""
+
+#: ../theme-options/option-settings.php:822
+#: ../theme-options/option-settings.php:918
+#: ../theme-options/option-settings.php:1016
+msgid "Multiple Templates"
+msgstr ""
+
+#: ../theme-options/option-settings.php:830
+#: ../theme-options/option-settings.php:926
+#: ../theme-options/option-settings.php:1024
+#: ../theme-options/option-settings.php:1142
+#: ../theme-options/option-settings.php:1237
+msgid "All Browser Support"
+msgstr ""
+
+#: ../theme-options/option-settings.php:833
+#: ../theme-options/option-settings.php:929
+#: ../theme-options/option-settings.php:1027
+msgid "Powerful Option Panel"
+msgstr ""
+
+#: ../theme-options/option-settings.php:839
+#: ../theme-options/option-settings.php:935
+#: ../theme-options/option-settings.php:1033
+msgid "Custom Shortcode"
+msgstr ""
+
+#: ../theme-options/option-settings.php:842
+#: ../theme-options/option-settings.php:938
+#: ../theme-options/option-settings.php:1036
+msgid "Isotope Effects and lightbox"
+msgstr ""
+
+#: ../theme-options/option-settings.php:845
+#: ../theme-options/option-settings.php:941
+#: ../theme-options/option-settings.php:1039
+#: ../theme-options/option-settings.php:1145
+#: ../theme-options/option-settings.php:1240
+msgid "Fast & Friendly Support"
+msgstr ""
+
+#: ../theme-options/option-settings.php:850
+#: ../theme-options/option-settings.php:947
+#: ../theme-options/option-settings.php:1045
+#: ../theme-options/option-settings.php:1150
+#: ../theme-options/option-settings.php:1245
+msgid "View Demo"
+msgstr ""
+
+#: ../theme-options/option-settings.php:851
+#: ../theme-options/option-settings.php:948
+#: ../theme-options/option-settings.php:1046
+#: ../theme-options/option-settings.php:1151
+#: ../theme-options/option-settings.php:1246
+msgid "Purchase Now"
+msgstr ""
+
+#: ../theme-options/option-settings.php:857
+#: ../theme-options/option-settings.php:886
+#: ../theme-options/option-settings.php:955
+#: ../theme-options/option-settings.php:984
+#: ../theme-options/option-settings.php:1053
+#: ../theme-options/option-settings.php:1157
+#: ../theme-options/option-settings.php:1185
+#: ../theme-options/option-settings.php:1252
+msgid "Close"
+msgstr ""
+
+#: ../theme-options/option-settings.php:866
+msgid "Green Lantern Pro"
+msgstr ""
+
+#: ../theme-options/option-settings.php:896
+msgid "Green Lantern Pro Theme"
+msgstr ""
+
+#: ../theme-options/option-settings.php:897
+msgid "Weblizar"
+msgstr ""
+
+#: ../theme-options/option-settings.php:898
+msgid ""
+"Green Lantern is a Full Responsive Multi-Purpose Theme suitable for "
+"Business , corporate office amd others .Cool Blog Layout and full width page "
+"also present"
+msgstr ""
+
+#: ../theme-options/option-settings.php:964
+msgid "Weblizar Pro"
+msgstr ""
+
+#: ../theme-options/option-settings.php:994
+msgid "Weblizar Pro Theme"
+msgstr ""
+
+#: ../theme-options/option-settings.php:996
+msgid ""
+"Responsive Multi-Purpose Theme suitable for Business , corporate office and "
+"others .Cool Blog Layout and full width page.You can also use it for  "
+"portfolio, blogging or any type of site. Built with Twitter bootstrap"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1066
+msgid "Weblizar Responsive Wordpress Plugins"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1067
+msgid "Get the Plugin and create beautiful Galleries and Slideshow."
+msgstr ""
+
+#: ../theme-options/option-settings.php:1070
+msgid "Lightbox Slider Pro"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1100
+msgid "LightBox Slider Pro"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1102
+msgid ""
+"Lightbox Slider is premium wordpress plugin to create gallery with lightbox "
+"slide"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1110
+msgid "Ultimate Lightbox"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1113
+#: ../theme-options/option-settings.php:1208
+msgid "Gallery Layout"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1116
+#: ../theme-options/option-settings.php:1211
+msgid "Fonts Styles"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1119
+#: ../theme-options/option-settings.php:1214
+msgid "Color Opacity"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1122
+#: ../theme-options/option-settings.php:1217
+msgid "Lightbox"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1130
+#: ../theme-options/option-settings.php:1225
+msgid "Gallery Shortcode"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1139
+#: ../theme-options/option-settings.php:1234
+msgid "Isotope Effects"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1165
+msgid "Reponsive Photo Gallery"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1195
+msgid "Responsive Photo Gallery"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1197
+msgid "A Highly Animated Image Gallery Plugin For WordPress"
+msgstr ""
+
+#: ../theme-options/option-settings.php:1205
+msgid "Animation Effect"
+msgstr ""
