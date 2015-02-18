@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="screen" />
 	<?php wp_head(); ?> 
 	<script type="text/javascript" src="/wp-content/themes/dash/js/dash.js"></script>
+	<link rel="stylesheet" href="/wp-content/themes/dash/css/dash.css" type="text/css" />
 </head>
 
 <body <?php body_class(); ?>>

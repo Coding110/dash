@@ -9,7 +9,7 @@ function weblizar_comment( $comment, $args, $depth )
 
 	//translations
 	$leave_reply = $comment_data['translation_reply_to_coment'] ? $comment_data['translation_reply_to_coment'] : 
-	__('Reply','weblizar'); ?>        
+	__('Reply','dash'); ?>        
         <div class="comment_wrap">
 			<div class="gravatar">
             <?php echo get_avatar($comment,$size = '60'); ?>

@@ -5,7 +5,7 @@
 class wl_flickr_widget extends WP_Widget {
 
 	function wl_flickr_widget() {
-		parent::WP_Widget(false, $name = 'Flickr widget', array('description' => __('Displays your latest Flickr photos.', 'weblizar') ));	
+		parent::WP_Widget(false, $name = 'Flickr widget', array('description' => __('Displays your latest Flickr photos.', 'dash') ));	
 	}
 	
 	function widget($args, $instance) {

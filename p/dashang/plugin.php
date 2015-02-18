@@ -15,8 +15,8 @@
  */
 define( 'DSPAY_API_VERSION', '1.0.0' );
 
-//include_once( dirname( __FILE__ ) . '/lib/class-wp-json-dashang.php' );
-
+include_once( dirname( __FILE__ ) . '/payhelper.php' );
+include_once( dirname( __FILE__ ) . '/managerhelper.php' );
 /**
  * Register our rewrite rules for the API
  */
@@ -57,12 +57,13 @@ function dspay_api_maybe_flush_rewrites() {
 add_action( 'init', 'dspay_api_maybe_flush_rewrites', 999 );
 
 /**
- * Load the JSON API
+ *	Load the router
+ *	e.g.: 
+ *		1).$home_url/sh/7b646c8d
+ *		2).$home_url/sh/alipay/return
+ *		3).$home_url/sh/alipay/notify
+ *		4).$home_url/sh/mng/{handle}
  *
- * @todo Extract code that should be unit tested into isolated methods such as
- *       the wp_json_server_class filter and serving requests. This would also
- *       help for code re-use by `wp-json` endpoint. Note that we can't unit
- *       test any method that calls die().
  */
 function dspay_api_loaded() {
 	if ( empty( $GLOBALS['wp']->query_vars['dspay_route'] ) )
@@ -74,17 +75,7 @@ function dspay_api_loaded() {
 		// Dashang payment
 		$len = strlen($args[1]);
 		if($len >= 6 && $len <= 12){ 
-			//echo "Payment order: ".$args[1]."\n";
-			//echo "current dir:".getcwd()."\n";
-			echo "<h3>正在为您跳转到支付宝，请稍等...</h3>";
-			$_POST['WIDout_trade_no'] = "100001";
-			$_POST['WIDsubject'] = "云打赏(www.dashangcloud.com)";
-			if(isset($_POST['alipay'])){
-				$_POST['WIDprice'] = $_POST['alipay'];
-			}else{
-				$_POST['WIDprice'] = 10;
-			}
-			include("alipay/create_partner_trade_by_buyer/alipayapi.php");
+			rewarding();
 		}else{
 			echo "Some error 3\n";
 		}
@@ -92,12 +83,21 @@ function dspay_api_loaded() {
 		if($args[1] == "alipay"){	
 			if($args[2] == "notify"){
 				echo "Alipay callback notify: ".$args[2]."\n";
+				alipay_notify();
 			}else if($args[2] == "return"){
 				echo "Alipay callback return : ".$args[2]."\n";
+				alipay_return();
 			}else{
 				echo "Some error 2\n";
 			}
-			
+		}else if($args[1] == "mng"){	
+			if($args[2] == "test"){
+				manager_test();
+			}else if($args[2] == ""){
+				//alipay_return();
+			}else{
+				echo "Some error 4\n";
+			}
 		}else{
 			// Error
 			echo "Some error 1\n";

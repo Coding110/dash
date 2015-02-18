@@ -1,5 +1,6 @@
 <?php        
 /*	*Theme Name	: Dash
+	*Text Domain: dash
 	*Theme Core Functions and Codes
 */
 	/**Includes required resources here**/
@@ -134,11 +135,11 @@
 		if ( ! isset( $content_width ) ) $content_width = 630; //px
 	
 		// Load text domain for translation-ready
-		load_theme_textdomain( 'weblizar', WL_TEMPLATE_DIR_CORE . '/lang' );	
+		load_theme_textdomain( 'dash', WL_TEMPLATE_DIR_CORE . '/lang' );	
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' ); //supports featured image
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menu( 'primary', __( 'Primary Menu', 'weblizar' ) );
+		register_nav_menu( 'primary', __( 'Primary Menu', 'dash' ) );
 		// theme support 	
 		add_theme_support( 'automatic-feed-links'); 
 		$args = array('default-color' => 'fff',);
@@ -199,9 +200,9 @@ endif;
 	register_widget('wl_flickr_widget');
 	/*sidebar*/
 	register_sidebar( array(
-			'name' => __( 'Sidebar', 'weblizar' ),
+			'name' => __( 'Sidebar', 'dash' ),
 			'id' => 'sidebar-primary',
-			'description' => __( 'The primary widget area', 'weblizar' ),
+			'description' => __( 'The primary widget area', 'dash' ),
 			'before_widget' => '<div class="sidebar_widget">',
 			'after_widget' => '</div><div class="clearfix margin_top3"></div>',
 			'before_title' => '<div class="sidebar_title"><h4>',
@@ -209,9 +210,9 @@ endif;
 		) );
 	/* manager sidebar*/
 	register_sidebar( array(
-			'name' => __( 'Manger-nav', 'donghua' ),
+			'name' => __( 'Manger-nav', 'dash' ),
 			'id' => 'sidebar-mge-nav',
-			'description' => __( 'Manager navigation area', 'donghua' ),
+			'description' => __( 'Manager navigation area', 'dash' ),
 			'before_widget' => '<div class="sidebar-mge-nav">',
 			'after_widget' => '</div><div class="clearfix margin_top"></div>',
 			'before_title' => '<div class="sidebar_title"><h4>',
@@ -219,9 +220,9 @@ endif;
 		) );
 	/** footer widget area **/
 	register_sidebar( array(
-			'name' => __( 'Footer Widget Area', 'weblizar' ),
+			'name' => __( 'Footer Widget Area', 'dash' ),
 			'id' => 'footer-widget-area-ext',
-			'description' => __( 'footer widget area', 'weblizar' ),
+			'description' => __( 'footer widget area', 'dash' ),
 			'before_widget' => '<div class="one_fourth animate fadeInUp" data-anim-type="fadeInUp"><div class="qlinks">',
 			'after_widget' => '</div></div>',
 			'before_title' => '<h4 class="lmb">',
@@ -280,10 +281,10 @@ endif;
 	* =================================================================================*/
 	function weblizar_link_pages($args = '') {
         $defaults = array(
-                'before' => '' . __('Pages:','weblizar'), 'after' => '',
+                'before' => '' . __('Pages:','dash'), 'after' => '',
                 'link_before' => '', 'link_after' => '',
-                'next_or_number' => 'number', 'nextpagelink' => __('Next page','weblizar'),
-                'previouspagelink' => __('Previous page','weblizar'), 'pagelink' => '%',
+                'next_or_number' => 'number', 'nextpagelink' => __('Next page','dash'),
+                'previouspagelink' => __('Previous page','dash'), 'pagelink' => '%',
                 'echo' => 1
         );
 
@@ -427,7 +428,7 @@ endif;
     if (get_query_var('paged')) {
         if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author())
             echo ' (';
-        //echo __('Page', 'weblizar') . ' ' . get_query_var('paged');
+        //echo __('Page', 'dash') . ' ' . get_query_var('paged');
         if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author())
             echo ')';
     }
