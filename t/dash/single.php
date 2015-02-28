@@ -11,7 +11,7 @@ get_template_part('weblizar','breadcrumbs'); ?>
 		get_template_part('post-author'); 
 		weblizar_navigation_posts(); ?>		
     <div class="clearfix divider_dashed9"></div>  
-	<?php comments_template('',true); ?>
+	<?php //comments_template('',true); ?>
 	<div class="clearfix mar_top2"></div>
 	</div><!-- end content left side -->
 	<?php get_sidebar(); ?>

@@ -49,6 +49,17 @@
 								<li><a href="<?php echo esc_url($wl_theme_options['rss_link']); ?>"><i class="fa fa-rss"></i></a></li>
 								<?php } 
 							}	?>
+							<?php if($wl_theme_options['header_section_login_enbled'] =='on'){ 
+								if(is_user_logged_in()){ 
+									$current_user = wp_get_current_user(); 
+								?>
+									<li><a href="#"><?php echo $current_user->user_login; ?></a></li>
+									<li><a href="<?php wp_logout(); ?>">退出</a></li>
+								<?php }else{ ?>
+									<li><a href="<?php echo wp_login_url(home_url()); ?>">登录</a></li>
+									<li><a href="<?php echo wp_registration_url(); ?>">注册</a></li>
+							<?php } 
+							}	?>
 							</ul>					
 					</div><!-- end right social links -->			
 				</div>

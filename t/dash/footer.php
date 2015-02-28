@@ -11,7 +11,7 @@
 		{  ?>
 		<div class="one_fourth animate" data-anim-type="fadeInUp">
 			<div class="siteinfo">			
-				<h4 class="lmb"><?php _e('About Dashang Cloud',gr_td); ?></h4>				
+				<h4 class="lmb">关于云打赏<?php //_e('About Dashang Cloud',gr_td); ?></h4>				
 				<p><?php _e('All the Lorem Ipsum generators on the Internet tend to repeat predefined an chunks as necessary, making this the first true generator on the Internet.
 					All the Lorem Ipsum generators on the Internet tend to repeat predefined Lorem Ipsum as their default model text, and a search for web sites.',gr_td); ?></p>
 				<br />							
@@ -48,13 +48,6 @@
 			</div>
 		</div><!-- end links -->		
 			
-		<!--
-		<div class="one_fourth last animate" data-anim-type="fadeInUp">		
-			<h4><?php //_e('Flickr Photos',gr_td); ?></h4>			
-			<div id="flickr_badge_wrapper">
-				<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&amp;display=latest&amp;size=s&amp;layout=h&amp;source=user&amp;user=121500546@N06"></script>     
-			</div>			
-		</div>--><!-- end flickr -->
 		<?php } ?>		
 	</div>
 </div><!-- end footer -->
@@ -65,9 +58,6 @@
 			<div class="clearfix divider_dashed10"></div>
 			<?php $wl_theme_options = weblizar_get_options(); ?>
 			<div class="one_third">
-			<!--
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', gr_td ) ); ?>"><?php printf( __( 'Proudly powered by %s', gr_td ), 'WordPress' ); ?></a>
-			-->
 			</div>
 			<div class="one_third animate" data-anim-type="fadeInRight">
 			

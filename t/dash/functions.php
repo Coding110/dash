@@ -18,7 +18,7 @@
 {	//$ImageUrl = WL_TEMPLATE_DIR_URI ."/images/slide-1.jpg";
 	//$ImageUrl2 = WL_TEMPLATE_DIR_URI ."/images/slide-2.jpg";
 	//$ImageUrl3 = WL_TEMPLATE_DIR_URI ."/images/slide-3.jpg";
-	$ImageUrl = WL_TEMPLATE_DIR_URI ."/images/s4.jpg";
+	$ImageUrl = WL_TEMPLATE_DIR_URI ."/images/s4-2.jpg";
 	$ImageUrl0 = WL_TEMPLATE_DIR_URI ."/images/s6.jpg";
 	$ImageUrl2 = WL_TEMPLATE_DIR_URI ."/images/s1-2.jpg";
 	$ImageUrl3 = WL_TEMPLATE_DIR_URI ."/images/s5.jpg";
@@ -58,27 +58,27 @@
 			'slide_btn_link_2' => '#',
 			
 			//Service
-			'home_service_title'=>'业务接入',
+			'home_service_title'=>'打赏方式',
 			'home_service_description'=>'支持多种方式接入打赏功能，适应更多场景。',
 			
-			'service_1_title'=>"网站接入",
-			'service_1_icons'=>"fa fa-google",
-			'service_1_text'=>"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in.",
+			'service_1_title'=>"网站",
+			'service_1_icons'=>"fa fa-laptop",
+			'service_1_text'=>"如果您拥有自己的网站，两行代码就可以让您的网站实现打赏，让您的原创为您带来价值。",
 			'service_1_link'=>"#",
 			
-			'service_2_title'=>"博客接入",
-			'service_2_icons'=>"fa fa-database",
-			'service_2_text'=>"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in.",
+			'service_2_title'=>"微博/微信",
+			'service_2_icons'=>"fa fa-weixin",
+			'service_2_text'=>"如果您长期潜伏在微博或微信中，一个链接同样可以实现打赏，让赞同您的人有所为。",
 			'service_2_link'=>"#",
 			
-			'service_3_title'=>"WAP接入",
-			'service_3_icons'=>"fa fa-wordpress",
-			'service_3_text'=>"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in.",
+			'service_3_title'=>"WAP",
+			'service_3_icons'=>"fa fa-mobile",
+			'service_3_text'=>"微信公众号文章、手机分享网页等，同一个链接让分享到任何地方的原创内容都可以实现打赏。",
 			'service_3_link'=>"#",
 			
-			'service_4_title'=>"微信接入",
-			'service_4_icons'=>"fa fa-laptop",
-			'service_4_text'=>"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in.",
+			'service_4_title'=>"博客",
+			'service_4_icons'=>"fa fa-pencil-square-o",
+			'service_4_text'=>"如果您依然混迹各种博客里，一个图文链接依然可以让粉丝们打赏您的佳作。",
 			'service_4_link'=>"#",
 			
 			
@@ -103,6 +103,7 @@
 			'youtube_link' => "https://www.youtube.com/",
 			'rss_link' => "https://www.rss.com/",
 			
+			'header_section_login_enbled'=>'on',
 			
 			//footer customization 
 			'footer_customizations' => 'Copyright @ 2015 <a href="http://www.dashangcloud.com">云打赏</a>（<a href="http://www.dashangcloud.com">Dashang Cloud</a>）.',
@@ -168,8 +169,7 @@
 	if ( ! function_exists( 'wl_render_title' ) ) :
 	function wl_render_title() {
 ?>
-	<!--<title><?php //wp_title( '|', true, 'right' ); ?></title>-->
-	<meta content="云打赏, 打赏, Dashang Cloud, Dashang" name="keywords">
+	<meta content="云打赏, 打赏" name="keywords">
 	<meta content="一个按钮让您的网站支持打赏，一个链接让您在任何地方享受打赏，让我们一起保护原创！" name="description">
 <?php
 	}
@@ -473,4 +473,6 @@ endif;
          echo "</div>";
      }
 }
+
+add_filter('show_admin_bar', '__return_false');
 ?>
