@@ -17,6 +17,7 @@ define( 'DSPAY_API_VERSION', '1.0.0' );
 
 include_once( dirname( __FILE__ ) . '/payhelper.php' );
 include_once( dirname( __FILE__ ) . '/managerhelper.php' );
+include_once( dirname( __FILE__ ) . '/dashdata.php' );
 /**
  * Register our rewrite rules for the API
  */
@@ -131,6 +132,8 @@ function dspay_api_activation( $network_wide ) {
 		dspay_api_register_rewrites();
 		update_option( 'dspay_api_plugin_version', null );
 	}
+
+	dash_tables_init();
 }
 register_activation_hook( __FILE__, 'dspay_api_activation' );
 
