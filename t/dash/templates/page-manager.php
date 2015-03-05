@@ -4,10 +4,13 @@
 ?>
 <div class="left_sidebar">
 <?php 
-	//if ( is_active_sidebar( 'sidebar-mge-nav' ) )
-	//{ 
-	//	dynamic_sidebar( 'sidebar-mge-nav' );
-	//} 
+	// check if user login
+	if(!is_user_logged_in()){ 
+		echo "Not login";
+	}else{
+		$current_user = wp_get_current_user(); 
+		echo "login, ".$current_user->user_login;;
+	}
 ?>
 
 <div class="list-group" style="width:40%;min-width:120px;text-align:center;">
