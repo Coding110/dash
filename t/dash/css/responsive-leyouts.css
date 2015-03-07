@@ -552,7 +552,7 @@ ul.post_meta_links_small {
 
 #trueHeader #logo{
 	text-align: center;
-	background:url(../images/logo.png) no-repeat center bottom;
+	//background:url(../images/logo.png) no-repeat center bottom;
 }
 #trueHeader .logo {
 	width: 100%;
@@ -1167,7 +1167,7 @@ ul.adsbanner-list {
 
 #trueHeader #logo{
 	text-align: center;
-	background:url(../images/logo.png) no-repeat center bottom;
+	//background:url(../images/logo.png) no-repeat center bottom;
 }
 #trueHeader .logo {
 	width: 100%;

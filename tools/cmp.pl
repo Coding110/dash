@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use feature qw/say/;
 
-my $dir1="/var/www/html/wp/";
+my $dir1="/app/www/dashang/";
 my $dir2="/home/admin/project/dash/";
 
 my @objs = (

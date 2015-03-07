@@ -332,7 +332,7 @@ margin-top: 104px;
     .navbar-collapse.pull-right {
         width: 100%;
         /*float: none !important;*/
-        background: #1e1e1e;
+        //background: #1e1e1e;
     }
     #navbar-collapse-1 > ul > li.dropdown > a > b {
         float: right;
@@ -477,10 +477,10 @@ color: #575757;
     border: 0px solid transparent;
     border-radius: 0;
     margin-left: 15px;
-    background: #272727;
+    //background: #272727;
 	cursor: pointer;
 }
-.navbar-toggle > span {Color:#272727;}
+.navbar-toggle > span {Color:#ffffff;}
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
  background-color: #272727;
 }

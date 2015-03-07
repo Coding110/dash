@@ -26,7 +26,7 @@
 		<div class="wrapper">         
 			<div class="top_nav">
 				<div class="container">					
-					<div class="right">	<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />				
+					<div class="right">	<!--<img src="<?php //header_image(); ?>" height="<?php //echo get_custom_header()->height; ?>" width="<?php //echo get_custom_header()->width; ?>" alt="" />	-->			
 						<ul> <?php if($wl_theme_options['contact_email']!=''){ ?>           	
 							<li><a href="mailto:<?php echo esc_url($wl_theme_options['contact_email']); ?>"><i class="fa fa-envelope"></i> <?php echo $wl_theme_options['contact_email']; ?></a></li> <?php } ?>
 							<?php if($wl_theme_options['contact_phone_no']!=''){ ?> 
