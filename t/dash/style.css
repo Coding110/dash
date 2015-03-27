@@ -5427,3 +5427,10 @@ width: 100%;
 .current_page_item{
 	background-color:#13afeb;
 }
+.manager-slidebar{
+	margin-left:20%;
+	width:40%;
+	min-width:120px;
+	text-align:center;
+}
+
