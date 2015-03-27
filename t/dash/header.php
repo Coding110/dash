@@ -54,7 +54,7 @@
 									$current_user = wp_get_current_user(); 
 								?>
 									<li><a href="#"><?php echo $current_user->user_login; ?></a></li>
-									<li><a href="<?php wp_logout(); ?>">退出</a></li>
+									<li><a href="<?php echo wp_logout_url("http://".$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); ?>">退出</a></li>
 								<?php }else{ ?>
 									<li><a href="<?php echo wp_login_url("http://".$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); ?>">登录</a></li>
 									<li><a href="<?php echo wp_registration_url(); ?>">注册</a></li>
