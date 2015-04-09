@@ -1,25 +1,46 @@
-<h3>打赏链接</h3>
+<h3><?php echo __('Dashang Links','dash'); ?></h3>
+<div class="panel panel-default gen-link-note">
+ <div class="panel-body">
+如果您在其它平台发布内容，可以根据平台信息生成相应的代码，编辑到内容中合适的位置，以实现打赏。同时也欢迎把暂不支持的平台代码规则告诉我们。
+ </div>
+</div>
 <div class="gen-link-area">
-	<label>默认打赏金额:</label>&nbsp;&nbsp;&nbsp;
-	<input type="text" value="1" style="width:50px;"/>
-	<label>元</label>
+	<label><?php echo __('Default fee:', 'dash'); ?></label>&nbsp;
+	<input class="form-control" type="text" value="1" />
+	<label><?php echo __('yuan','dash'); ?></label>
 	<br>
-	<div><label>在哪使用打赏链接:</label></div>
-	
-	<div class="link-scene-radio">&nbsp;&nbsp;&nbsp;
-		<span><input type="radio" name="linkscene" value="1" id="link-scene-weixin" checked="">朋友圈/说说</span>&nbsp;
-		<span><input type="radio" name="linkscene" value="2" id="link-scene-weibo">微博</span>&nbsp;
-		<span><input type="radio" name="linkscene" value="3" id="link-scene-blog">博客</span>&nbsp;
-	</div>
-	<div>快速通道</div>
-	<div class="">
-		<span><input type="radio" name="blogscene" value="1" id="blog-scene-weixin" checked="">微信平台</span>&nbsp;
-		<span><input type="radio" name="blogscene" value="2" id="blog-scene-qzone">QQ空间</span>&nbsp;
-		<span><input type="radio" name="blogscene" value="3" id="blog-scene-sina">新浪</span>&nbsp;
-		<span><input type="radio" name="blogscene" value="4" id="blog-scene-163">网易</span>&nbsp;
+	<br>
+	<label><?php echo __('Where links using:','dash'); ?>&nbsp;</label>
+	<div class="btn-group" data-toggle="buttons">
+		<label class="btn btn-primary active">
+		  <input type="radio" name="options" id="option1" autocomplete="off" checked>微信
+		</label>
+		<label class="btn btn-primary">
+		  <input type="radio" name="options" id="option3" autocomplete="off">微博
+		</label>
+		<label class="btn btn-primary">
+		  <input type="radio" name="options" id="option1" autocomplete="off" checked>网易博客
+		</label>
+		<label class="btn btn-primary">
+		  <input type="radio" name="options" id="option2" autocomplete="off">新浪博客
+		</label>
+		<label class="btn btn-primary">
+		  <input type="radio" name="options" id="option3" autocomplete="off">QQ空间
+		</label>
+		<label class="btn btn-primary">
+		  <input type="radio" name="options" id="option2" autocomplete="off">CSDN博客
+		</label>
+		<label class="btn btn-primary">
+		  <input type="radio" name="options" id="option2" autocomplete="off">博客园
+		</label>
+		<label class="btn btn-primary">
+		  <input type="radio" name="options" id="option3" autocomplete="off">其他
+		</label>
+
 	</div>
 	<br>
-	<input type="button" href="#" value="生成链接" />
+	<br>
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#add-site-dlg"><?php echo __('Generate link','dash'); ?></button>
 </div>
 <div class="clearfix margin_top2"></div>
 <br>
@@ -61,23 +82,24 @@
           </tr>
         </tbody>
       </table>
-		<div class="links-page-info">
-			<div style="float:left;padding-left:20px;">每页<select class="dash-util-page-select">
-				<option value="30" selected="selected">30</option>
-				<option value="50">50</option>
-				<option value="100">100</option>
-			</select>条</div>
-			<div class="dash-pagination" style="float:left;padding-left:20px;">
-				<span>上一页</span>
-				<span>1</span>
-				<span>下一页</span>
-				<span>共2条</span>
-			</div>
-			<div class="dash-pagination-select">&nbsp;&nbsp;&nbsp;到第<select class="jump-page-select">
-				<option value="1" selected="selected">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-			</select>页</div>
-		</div>
+		<nav>
+		  <ul class="pagination">
+		    <li>
+		      <a href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>
+		    <li>
+		      <a href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
     </div>
 </div>

@@ -12,9 +12,9 @@
 
 <div class="left_sidebar">
 		<div class="list-group manager-slidebar">
-		  <a href="<?php echo home_url();?>/manager/?nav=code" class="list-group-item">生成打赏代码</a>
-		  <a href="<?php echo home_url();?>/manager/?nav=link" class="list-group-item">生成打赏链接</a>
-		  <a href="<?php echo home_url();?>/manager/?nav=profile" class="list-group-item">基本设置</a>
+		  <a href="<?php echo home_url();?>/manager/?nav=code" class="list-group-item">打赏代码</a>
+		  <a href="<?php echo home_url();?>/manager/?nav=link" class="list-group-item">打赏链接</a>
+		  <a href="<?php echo home_url();?>/manager/?nav=profile" class="list-group-item">收赏帐号</a>
 		</div>
 </div>
 

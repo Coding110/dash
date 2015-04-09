@@ -1,11 +1,9 @@
 <?php
 
-$nav = "profile";
+$nav = "code";
 if(isset($_REQUEST['nav'])){
 	$nav = $_REQUEST['nav'];
 }
-//echo "<h2>nav: ".$nav."</h2>";
-//echo home_url();
 
 if($nav == "code"){
 	// 生成代码

@@ -1,58 +1,5 @@
 
 <div class="clearfix"></div>
-<div class="footer1">
-	<div class="container">			
-		<div class="clearfix divider_dashed1"></div>
-		<?php
-		if ( is_active_sidebar( 'footer-widget-area-ext' ) )
-		{ 
-			dynamic_sidebar( 'footer-widget-area-ext' );
-		} else 
-		{  ?>
-		<div class="one_fourth animate" data-anim-type="fadeInUp">
-			<div class="siteinfo">			
-				<h4 class="lmb">关于云打赏<?php //_e('About Dashang Cloud',gr_td); ?></h4>				
-				<p><?php _e('All the Lorem Ipsum generators on the Internet tend to repeat predefined an chunks as necessary, making this the first true generator on the Internet.
-					All the Lorem Ipsum generators on the Internet tend to repeat predefined Lorem Ipsum as their default model text, and a search for web sites.',gr_td); ?></p>
-				<br />							
-			</div>
-		</div><!-- end site info -->	
-		<div class="one_fourth animate" data-anim-type="fadeInUp">
-			<div class="qlinks">		
-				<h4 class="lmb"><?php _e('Custom Menu',gr_td); ?></h4>			
-				<ul>
-					<li><a href="#"><?php _e('Home',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Blog',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Service',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Portfolio',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('About-us',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Team',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Contact -Us',gr_td); ?></a></li>
-					<li><a href="/wp-login.php"><?php _e('Login',gr_td); ?></a></li>
-				</ul>			
-			</div>
-		</div><!-- end links -->
-		
-		<div class="one_fourth animate" data-anim-type="fadeInUp">
-			<div class="qlinks">		
-				<h4 class="lmb"><?php _e('Recent Posts',gr_td); ?></h4>			
-				<ul>
-					<li><a href="#"><?php _e('Awsome Slidershows',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Features and Typography',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Different &amp; Unique Pages',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Single and Portfolios',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Recent Blogs or News',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Post with Image',gr_td); ?></a></li>
-					<li><a href="#"><?php _e('Layered PSD Files',gr_td); ?></a></li>
-				</ul>			
-			</div>
-		</div><!-- end links -->		
-			
-		<?php } ?>		
-	</div>
-</div><!-- end footer -->
-
-<div class="clearfix"></div>
 <div class="copyright_info">
 		<div class="container">
 			<div class="clearfix divider_dashed10"></div>

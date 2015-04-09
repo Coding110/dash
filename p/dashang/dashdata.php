@@ -12,6 +12,7 @@ define('DASH_URL_INFO_TABLE',$wpdb->prefix.'dash_URL_info');
 define('DASH_ACCOUNTS_TABLE',$wpdb->prefix.'dash_accounts');
 define('DASH_HISTORY_TABLE',$wpdb->prefix.'dash_history');
 define('DASH_TRANSFER_RECORDS_TABLE',$wpdb->prefix.'dash_transfer_records');
+define('DASH_SITES_TABLE',$wpdb->prefix.'dash_sites');
 global $dash_db_version;
 $dash_db_version = '1.0.0';
 
@@ -89,6 +90,17 @@ function dash_tables_init(){
 		UNIQUE KEY id (id)
 	) $charset_collate;";
 	dbDelta($sql);
+
+	// Create a database table
+	$table_name = DASH_SITES_TABLE;
+	$sql = "CREATE TABLE $table_name (
+		id bigint NOT NULL AUTO_INCREMENT,
+		user_id bigint(20) unsigned NOT NULL,
+		site varchar(1024),
+		add_time datetime,
+		UNIQUE KEY id (id)
+	) $charset_collate;";
+	dbDelta($sql);
 }
 
 function dash_url_info_columns(){
@@ -102,6 +114,8 @@ function dash_url_info_columns(){
 		'gen_time' => '%s',
 	);
 }
+
+/* Dashang URL Manager */
 
 /*	Select 
  *	
@@ -133,4 +147,57 @@ function dash_url_info_insert($data = array()){
  *	
  *	
  */
+
+/*	Dashang Transfer Manager */
+
+/*	New transfer
+ *	
+ */
+
+/*	Dashang History Manager */
+
+/*	New history
+ *	
+ */
+
+/*	Query history
+ *	
+ */
+
+
+/*	User Acount Manager */
+
+/*	Add Acount
+ *	
+ */
+
+/*	Modify Acount
+ *	
+ */
+
+/* Dashang Sites Manager */
+
+/*	Get sites by user id
+ *	
+ */
+function get_sites_by_user_id($user_id)
+{
+	echo "Get sites by user id, user id: ".$user_id;
+}
+
+function add_dash_site($user_id, $site)
+{
+	global $wpdb;
+	$id = $wpdb->insert(
+				DASH_SITES_TABLE,
+				array(
+					'user_id' => $user_id,
+					'site' => $site,
+					'add_time' => current_time('mysql')
+				),
+				array(
+					'%d','%s','%s'
+				)
+	);
+}
 
