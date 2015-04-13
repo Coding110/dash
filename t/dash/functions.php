@@ -106,7 +106,7 @@
 			'header_section_login_enbled'=>'on',
 			
 			//footer customization 
-			'footer_customizations' => 'Copyright @ 2015 <a href="http://www.dashangcloud.com">云打赏</a>（<a href="http://www.dashangcloud.com">Dashang Cloud</a>）.',
+			'footer_customizations' => 'Copyright @ 2015 <a href="http://www.dashangcloud.com">云打赏</a>（<a href="http://www.dashangcloud.com">Dashang Cloud</a>）京ICP备14053565号',
 			'developed_by_text' => '',
 			'developed_by_weblizar_text' => '',
 			'developed_by_link' => 'http://www.becktu.com/',

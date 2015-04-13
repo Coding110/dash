@@ -4,7 +4,7 @@
  *	Process for payment
  */
 
-include_once( dirname( __FILE__ ) . '/dashdata.php' );
+include_once( dirname( __FILE__ ) . '/dashhelper.php' );
 
 
 function rewarding()

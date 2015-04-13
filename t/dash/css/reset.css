@@ -585,7 +585,7 @@ height: 0;
 	float: left;
 	width: 100%;
 	margin: 0px 0px 35px 0px;
-	border-top: 1px dashed #3b3b3b;
+	//border-top: 1px dashed #3b3b3b;
 }
 
 /* responsive image */

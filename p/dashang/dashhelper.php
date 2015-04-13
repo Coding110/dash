@@ -96,7 +96,7 @@ function dash_tables_init(){
 	$sql = "CREATE TABLE $table_name (
 		id bigint NOT NULL AUTO_INCREMENT,
 		user_id bigint(20) unsigned NOT NULL,
-		site varchar(1024),
+		site char(255) UNIQUE,
 		add_time datetime,
 		UNIQUE KEY id (id)
 	) $charset_collate;";
@@ -182,7 +182,11 @@ function dash_url_info_insert($data = array()){
  */
 function get_sites_by_user_id($user_id)
 {
-	echo "Get sites by user id, user id: ".$user_id;
+	if(!isset($user_id) || empty($user_id)) return ;
+	global $wpdb;
+	$sql = "select site from ".DASH_SITES_TABLE." where user_id = ".$user_id." order by site asc;";
+	$sites = $wpdb->get_col($sql);
+	return $sites;
 }
 
 function add_dash_site($user_id, $site)

@@ -8,20 +8,17 @@
 	<div>
 		<label><?php echo __('Dashang Site:','dash'); ?></label>
 		<select name="ds_site" id="ds-site-id" class="ds-select">
-			<?php //list dashang site from db. ?>
-			<option value="www.abc.com">www.abc.com</option>
-			<option value="www.becktu.com">www.becktu.com</option>
-			<option value="www.dashangcloud.com">www.dashangcloud.com</option>
+			<?php //list dashang site from db. 
+				if(function_exists('get_sites_by_user_id')){
+					$dash_sites = get_sites_by_user_id(get_current_user_id());
+					foreach($dash_sites as $site)
+					{
+						echo "<option value=\"".$site."\">".$site."</option>";
+					}
+				}
+			?>
 		</select>
 		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#add-site-dlg"><?php echo __('Add Site','dash'); ?></button>
-		<?php
-			if(function_exists('get_sites_by_user_id')){
-				get_sites_by_user_id(get_current_user_id());
-			}
-			if(function_exists('add_dash_site')){
-				//add_dash_site(get_current_user_id(), 'www.becktu.com');
-			}
-		?>
 		&nbsp;&nbsp;&nbsp;
 		<label><?php echo __('Default fee:', 'dash'); ?></label>
 		<input class="form-control" type="text" value="1" />
@@ -29,7 +26,7 @@
 		&nbsp;&nbsp;
 		<button type="button" class="btn btn-default" id="generating-code"><?php echo __('Generate code','dash'); ?></button>
 	</div>
-
+	
 	<br>
 	<div class="clearfix margin_top2"></div>
 	<div class="ds-small-code">
@@ -81,7 +78,7 @@
       </div>
       <div class="modal-body">
 		<label><?php echo __('Input site:','dash'); ?></label>
-		<input class="form-control" type="text" placeholder="www.example.com" />
+		<input id="new-dash-site" class="form-control" type="text" placeholder="www.example.com" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __('Close', 'dash'); ?></button>

@@ -17,6 +17,7 @@ my @objs = (
 
 for( my $i = 0; $i < @objs; $i++){
 	my $cmd = "diff -r $objs[$i][0] $objs[$i][1] | grep \"$objs[$i][2]\"";
+	#my $cmd = "diff -r $objs[$i][0] $objs[$i][1]";
 	#print "Command: $cmd\n";
 	print `$cmd`;
 }

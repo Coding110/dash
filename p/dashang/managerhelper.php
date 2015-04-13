@@ -4,7 +4,7 @@
  *	Process for user managerment 
  */
 
-include_once( dirname( __FILE__ ) . '/dashdata.php' );
+include_once( dirname( __FILE__ ) . '/dashhelper.php' );
 
 function manager_test()
 {

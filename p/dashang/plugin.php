@@ -17,7 +17,7 @@ define( 'DSPAY_API_VERSION', '1.0.0' );
 
 include_once( dirname( __FILE__ ) . '/payhelper.php' );
 include_once( dirname( __FILE__ ) . '/managerhelper.php' );
-include_once( dirname( __FILE__ ) . '/dashdata.php' );
+include_once( dirname( __FILE__ ) . '/dashhelper.php' );
 /**
  * Register our rewrite rules for the API
  */
@@ -94,8 +94,9 @@ function dspay_api_loaded() {
 		}else if($args[1] == "mng"){	
 			if($args[2] == "test"){
 				manager_test();
-			}else if($args[2] == ""){
-				//alipay_return();
+			}else if($args[2] == "addsite"){
+			//}else if($args[2] == ""){
+				echo "New site: ".$_POST['site'];
 			}else{
 				echo "Some error 4\n";
 			}
