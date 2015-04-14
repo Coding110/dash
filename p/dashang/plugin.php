@@ -95,8 +95,8 @@ function dspay_api_loaded() {
 			if($args[2] == "test"){
 				manager_test();
 			}else if($args[2] == "addsite"){
+				add_dash_site(get_current_user_id(), $_POST['site']);
 			//}else if($args[2] == ""){
-				echo "New site: ".$_POST['site'];
 			}else{
 				echo "Some error 4\n";
 			}

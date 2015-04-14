@@ -7,6 +7,9 @@
  *	4.dash_transfer_records	// records of rewards transferring to users
  *	
  */
+
+include_once( dirname( __FILE__ ) . '/jsonresponse.php' );
+
 global $wpdb;
 define('DASH_URL_INFO_TABLE',$wpdb->prefix.'dash_URL_info');
 define('DASH_ACCOUNTS_TABLE',$wpdb->prefix.'dash_accounts');
@@ -191,6 +194,10 @@ function get_sites_by_user_id($user_id)
 
 function add_dash_site($user_id, $site)
 {
+	if(!isset($user_id) || empty($user_id) || !isset($site) || empty($site) || $user_id < 1){
+		echo json_response(1, "Too little information");
+		return ;
+	}
 	global $wpdb;
 	$id = $wpdb->insert(
 				DASH_SITES_TABLE,
@@ -203,5 +210,12 @@ function add_dash_site($user_id, $site)
 					'%d','%s','%s'
 				)
 	);
+
+	if(!isset($id) || empty($id)){
+		$resp = json_response(1, $wpdb->last_error);
+	}else{
+		$resp = json_response(0, "OK");
+	} 
+	echo $resp;
 }
 

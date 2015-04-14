@@ -19,11 +19,11 @@
 			?>
 		</select>
 		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#add-site-dlg"><?php echo __('Add Site','dash'); ?></button>
-		&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;<br><br>
 		<label><?php echo __('Default fee:', 'dash'); ?></label>
 		<input class="form-control" type="text" value="1" />
 		<label><?php echo __('yuan','dash'); ?></label>
-		&nbsp;&nbsp;
+		&nbsp;&nbsp;<br><br>
 		<button type="button" class="btn btn-default" id="generating-code"><?php echo __('Generate code','dash'); ?></button>
 	</div>
 	
@@ -35,9 +35,7 @@
     <script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
 	</div>
 	<br>
-	<textarea id="code-style-1" name="code-stlye" class="code_textarea_bg">
-<div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-4 aabbdd-1"></div>
-<script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script></textarea>
+	<textarea id="code-style-1" name="code-stlye" class="code_textarea_bg"><div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-4 aabbdd-1"></div><script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script></textarea>
 	</div>
 	<br>
 	<div class="clearfix margin_top"></div>
@@ -47,9 +45,7 @@
     <script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
 	</div>
 	<br>
-	<textarea id="code-style-2" name="code-stlye" class="code_textarea_bg">
-<div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-3 aabbdd-10"></div>
-<script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script></textarea>
+	<textarea id="code-style-2" name="code-stlye" class="code_textarea_bg"><div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-3 aabbdd-10"></div><script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script></textarea>
 	</div>
 	<br>
 	<div class="clearfix margin_top"></div>
@@ -59,9 +55,7 @@
     <script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
 	</div>
 	<br>
-	<textarea id="code-style-3" name="code-stlye" class="code_textarea_bg">
-<div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-2 aabbdd-100"></div>
-<script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script></textarea>
+	<textarea id="code-style-3" name="code-stlye" class="code_textarea_bg"><div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-2 aabbdd-100"></div><script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script></textarea>
 	</div>
 	<br>
 </div>
