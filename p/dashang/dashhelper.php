@@ -219,3 +219,64 @@ function add_dash_site($user_id, $site)
 	echo $resp;
 }
 
+function generate_dash_key($user_id, $site, $fee)
+{
+	// check if site or fee is empty in javascript
+	if(!isset($site) || empty($site) || !isset($fee) || empty($fee)){
+		echo json_response(1, "Eorror, site or fee can't be empty.");
+		return NULL;
+	}
+	// need rebuild code !!!!!
+	$key = "9896fe";
+	return $key;
+	global $wpdb;
+	$id = $wpdb->insert(
+				DASH_SITES_TABLE,
+				array(
+					'user_id' => $user_id,
+					'site' => $site,
+					'add_time' => current_time('mysql')
+				),
+				array(
+					'%d','%s','%s'
+				)
+	);
+
+	if(!isset($id) || empty($id)){
+	} 
+	return $key;
+}
+
+function get_dash_url($key)
+{
+	if(!isset($key) || empty($key)) return NULL;
+	$url = "http://www.dashangcloud.com/sh/".$key; // had better define the prefix as a variable
+	return $url;
+}
+
+function get_dash_code($key, $size, $fee) // $size: 2,3,4
+{
+	$dcode = "<div name=\"dashmain\" id=\"dash-main-id-".$key."\" class=\"dash-main-".$size." ".$key."-".$fee."\"></div>";
+	$scode = "<script type=\"text/javascript\" charset=\"utf-8\" src=\"http://www.dashangcloud.com/static/ds.js\"></script>";
+	return $dcode.$scode;
+}
+
+function generate_dash_code($user_id, $dash_key, $fee)
+{
+	if(!isset($dash_key) || empty($dash_key)){
+		$info = "Eorror, site or fee can't be empty.";
+		$resp = json_response(1, $info);
+		echo $resp;
+		return ;
+	}
+ 
+	$dash_url = get_dash_url($dash_key);
+	$info = array(
+				'ds_url' => $dash_url, 
+				's16' => get_dash_code($dash_key, 4, $fee),
+				's32' => get_dash_code($dash_key, 3, $fee), 
+				's64' => get_dash_code($dash_key, 2, $fee) 
+	);
+	$resp = json_response(0, $info);
+	echo $resp;
+}

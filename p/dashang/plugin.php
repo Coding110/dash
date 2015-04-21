@@ -96,6 +96,9 @@ function dspay_api_loaded() {
 				manager_test();
 			}else if($args[2] == "addsite"){
 				add_dash_site(get_current_user_id(), $_POST['site']);
+			}else if($args[2] == "gencode"){
+				$dskey = generate_dash_key(get_current_user_id(),$_POST['site'], $_POST['fee']);
+				generate_dash_code(get_current_user_id(), $dskey, $_POST['fee']);
 			//}else if($args[2] == ""){
 			}else{
 				echo "Some error 4\n";

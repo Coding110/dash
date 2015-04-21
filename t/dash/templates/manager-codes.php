@@ -15,47 +15,62 @@
 					{
 						echo "<option value=\"".$site."\">".$site."</option>";
 					}
+				}else{
+					echo "<option value=\"\">Can't find function</option>";
 				}
 			?>
 		</select>
 		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#add-site-dlg"><?php echo __('Add Site','dash'); ?></button>
 		&nbsp;&nbsp;&nbsp;<br><br>
 		<label><?php echo __('Default fee:', 'dash'); ?></label>
-		<input class="form-control" type="text" value="1" />
+		<input class="form-control" id="ds-default-fee" type="text" value="1" />
 		<label><?php echo __('yuan','dash'); ?></label>
 		&nbsp;&nbsp;<br><br>
 		<button type="button" class="btn btn-default" id="generating-code"><?php echo __('Generate code','dash'); ?></button>
 	</div>
+    <script type="text/javascript" charset="utf-8">
+	
+	jQuery( document ).ready(function() {
+		//generating_code_request(1);
+	});
+	</script>
 	
 	<br>
 	<div class="clearfix margin_top2"></div>
 	<div class="ds-small-code">
 	<div class="ds-small-sample"><h5>1.<?php echo __("Style", 'dash');?>1:</h5>
+	<div class="ds-small-sample-id">
 	<div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-4 aabbdd-1"></div>
     <script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
 	</div>
+	</div>
 	<br>
-	<textarea id="code-style-1" name="code-stlye" class="code_textarea_bg"><div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-4 aabbdd-1"></div><script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script></textarea>
+	<textarea id="code-style-1" name="code-stlye" class="code_textarea_bg"></textarea>
+<!--<div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-4 aabbdd-1"></div><script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js">-->
 	</div>
 	<br>
 	<div class="clearfix margin_top"></div>
 	<div class="ds-middle-code">
 	<div class="ds-middle-sample"><h5>2.<?php echo __("Style", 'dash');?>2:</h5>
+	<div id="ds-middle-sample-id">
 	<div name="dashmain" id="dash-main-id-aabbcc" class="dash-main-3 aabbcc-10"></div>
     <script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
 	</div>
+	</div>
 	<br>
-	<textarea id="code-style-2" name="code-stlye" class="code_textarea_bg"><div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-3 aabbdd-10"></div><script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script></textarea>
+	<textarea id="code-style-2" name="code-stlye" class="code_textarea_bg"></textarea>
 	</div>
 	<br>
 	<div class="clearfix margin_top"></div>
 	<div class="ds-large-code">
 	<div class="ds-large-sample"><h5>3.<?php echo __("Style", 'dash');?>3:</h5>
+	<div id="ds-large-sample-id">
 	<div name="dashmain" id="dash-main-id-aabbee" class="dash-main-2 aabbee-100"></div>
     <script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
 	</div>
+	</div>
 	<br>
-	<textarea id="code-style-3" name="code-stlye" class="code_textarea_bg"><div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-2 aabbdd-100"></div><script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script></textarea>
+	<textarea id="code-style-3" name="code-stlye" class="code_textarea_bg"></textarea>
 	</div>
 	<br>
 </div>
