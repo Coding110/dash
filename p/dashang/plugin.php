@@ -76,8 +76,9 @@ function dspay_api_loaded() {
 		// Dashang payment
 		$len = strlen($args[1]);
 		if($len >= 6 && $len <= 12){ 
-			rewarding();
+			rewarding($args[1]);
 		}else{
+			header("HTTP/1.0 404 Not Found");
 			echo "Some error 3\n";
 		}
 	}else if(count($args) == 3){
@@ -89,6 +90,7 @@ function dspay_api_loaded() {
 				echo "Alipay callback return : ".$args[2]."\n";
 				alipay_return();
 			}else{
+				header("HTTP/1.0 404 Not Found");
 				echo "Some error 2\n";
 			}
 		}else if($args[1] == "mng"){	
@@ -101,14 +103,17 @@ function dspay_api_loaded() {
 				generate_dash_code(get_current_user_id(), $dskey, $_POST['fee']);
 			//}else if($args[2] == ""){
 			}else{
+				header("HTTP/1.0 404 Not Found");
 				echo "Some error 4\n";
 			}
 		}else{
 			// Error
+			header("HTTP/1.0 404 Not Found");
 			echo "Some error 1\n";
 		}
 	}else{
 		// Error
+		header("HTTP/1.0 404 Not Found");
 		echo "Some error 0\n";
 	}
 

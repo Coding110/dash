@@ -40,7 +40,7 @@
 	<div class="ds-small-code">
 	<div class="ds-small-sample"><h5>1.<?php echo __("Style", 'dash');?>1:</h5>
 	<div class="ds-small-sample-id">
-	<div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-4 aabbdd-1"></div>
+	<div name="dashmain" id="dash-main-id-878693" class="dash-main-4 878693-1"></div>
     <script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
 	</div>
 	</div>
@@ -53,7 +53,7 @@
 	<div class="ds-middle-code">
 	<div class="ds-middle-sample"><h5>2.<?php echo __("Style", 'dash');?>2:</h5>
 	<div id="ds-middle-sample-id">
-	<div name="dashmain" id="dash-main-id-aabbcc" class="dash-main-3 aabbcc-10"></div>
+	<div name="dashmain" id="dash-main-id-878693" class="dash-main-3 878693-10"></div>
     <script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
 	</div>
 	</div>
@@ -65,7 +65,7 @@
 	<div class="ds-large-code">
 	<div class="ds-large-sample"><h5>3.<?php echo __("Style", 'dash');?>3:</h5>
 	<div id="ds-large-sample-id">
-	<div name="dashmain" id="dash-main-id-aabbee" class="dash-main-2 aabbee-100"></div>
+	<div name="dashmain" id="dash-main-id-878693" class="dash-main-2 878693-100"></div>
     <script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
 	</div>
 	</div>

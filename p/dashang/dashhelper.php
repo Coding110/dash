@@ -9,6 +9,7 @@
  */
 
 include_once( dirname( __FILE__ ) . '/jsonresponse.php' );
+include_once( dirname( __FILE__ ) . '/common.php' );
 
 global $wpdb;
 define('DASH_URL_INFO_TABLE',$wpdb->prefix.'dash_URL_info');
@@ -18,6 +19,17 @@ define('DASH_TRANSFER_RECORDS_TABLE',$wpdb->prefix.'dash_transfer_records');
 define('DASH_SITES_TABLE',$wpdb->prefix.'dash_sites');
 global $dash_db_version;
 $dash_db_version = '1.0.0';
+define('DASH_KEY_BASE', 0x878680); // dash_key = $dash_key_start + id(id in the same db table)
+global $dash_key_base;
+$dash_key_base = 0x878680;
+
+/*
+ *	Pay status
+ *	0 - new payment, 1 - pay success, 2 - pay failed
+ */
+define('DS_PAY_NEW', 0);
+define('DS_PAY_SUCCESS', 1);
+define('DS_PAY_FAILED', 2);
 
 /*
  *	@key:			key in the Dashang URL, stored as digital and used as hex string at least 6 char(zeros filled if less than 6 char)
@@ -58,15 +70,17 @@ function dash_tables_init(){
 		dash_key varchar(16) NOT NULL, 
 		user_id bigint(20) unsigned NOT NULL,
 		account_id int NOT NULL,
-		default_money bigint DEFAULT 1 NOT NULL,
+		default_money double DEFAULT 1 NOT NULL,
 		dash_type varchar(8) NOT NULL, 
 		dash_scene varchar(16) NOT NULL, 
 		gen_time datetime DEFAULT '2015-02-01 00:00:00' NOT NULL,
-		UNIQUE KEY id (id)
+		UNIQUE KEY id (id),
+		UNIQUE KEY dash_key (dash_key)
 	) $charset_collate;";
 	dbDelta($sql);
 
 	// Create a database table
+	// pay status: 0 - new payment, 1 - pay success, 2 - pay failed
 	$table_name = DASH_HISTORY_TABLE;
 	$sql = "CREATE TABLE $table_name (
 		id bigint NOT NULL AUTO_INCREMENT,
@@ -74,7 +88,7 @@ function dash_tables_init(){
 		pay_trade_no varchar(16) NOT NULL, 
 		pay_status int,
 		dash_user varchar(128), 
-		dash_money bigint,
+		dash_money double,
 		dash_time datetime,
 		dash_referer text, 
 		UNIQUE KEY id (id)
@@ -104,6 +118,23 @@ function dash_tables_init(){
 		UNIQUE KEY id (id)
 	) $charset_collate;";
 	dbDelta($sql);
+
+	// (don't know how to work with procedure in wordpress, replace by LOCK mechanism)
+	// Create a procedure for creaing dashang URL info 
+	// Call it with write lock
+	//$sql = "DELIMITER // 
+	//		CREATE PROCEDURE create_dash_url_info ('uid' bigint(20) unsigned,'account_id' int(11),default_money double,dash_type varchar(8),dash_scene varchar(16))
+	//		BEGIN 
+	//			START TRANSACTION;
+	//			insert into ".DASH_URL_INFO_TABLE." (user_id,account_id,default_money,dash_type,dash_scene,gen_time)
+	//			values (uid,account_id,default_money,dash_type,dash_scene,now());
+	//			update ".DASH_URL_INFO_TABLE." set dash_key = HEX(".DASH_KEY_BASE." + LAST_INSERT_ID()) where id = LAST_INSERT_ID();
+	//			COMMIT;
+	//		END;//
+	//		DELIMITER;";
+	//error_log($sql);
+	//#$ret = dbDelta($sql);
+	//$wpdb->query($sql);
 }
 
 function dash_url_info_columns(){
@@ -120,15 +151,6 @@ function dash_url_info_columns(){
 
 /* Dashang URL Manager */
 
-/*	Select 
- *	
- *	
- */
-
-/*	Insert 
- *	
- *	
- */
 function dash_url_info_insert($data = array()){
 	global $wpdb;
 
@@ -141,15 +163,107 @@ function dash_url_info_insert($data = array()){
 	return $wpdb->insert_id;
 }
 
-/*	Update 
- *	
- *	
- */
+function generate_dash_key($user_id, $site, $fee)
+{
+	// check if site or fee is empty in javascript
+	if($user_id == 0 || !isset($fee) || empty($fee)){
+		echo json_response(1, "Eorror, invalid argument (1)");
+		return NULL;
+	}
 
-/*	Delete 
- *	
- *	
+	// check if $fee is double
+	if(!is_numeric($fee)){
+		echo json_response(1, "Eorror, invalid argument (2)");
+		return NULL;
+	}
+	$fee_float = floatval($fee);
+	$type = "web";
+	if(!isset($site) || empty($site)){
+		$type = "post";
+	}
+	if($type == "web"){
+	}else if($type == "post"){
+		$scene = "dommain";
+	}else{
+		echo json_response(1, "Eorror, invalid argument (3)");
+		return NULL;
+	}
+
+	// test
+	//$key = "9896fe";
+	//return $key;
+
+	global $wpdb;
+
+	// find if the the current user had a key with the same $fee (improve later with checking $site )
+	$sql = "select dash_key from ".DASH_URL_INFO_TABLE." where user_id = ".$user_id." and default_money = ".$fee.";";
+	$key = $wpdb->get_col($sql);
+	if(!empty($key)){
+		return $key[0];
+	}
+
+	// create a key if not found
+	$wpdb->query("LOCK TABLES ".DASH_URL_INFO_TABLE." WRITE");
+	$ret = $wpdb->insert(
+				DASH_URL_INFO_TABLE,
+				array(
+					'user_id' => $user_id,
+					'default_money' => $fee_float,
+					'dash_type' => $type,
+					'dash_scene' => $scene,
+					'gen_time' => current_time('mysql')
+				),
+				array(
+					'%d','%f', '%s', '%s', '%s'
+				)
+	);
+	if($ret == false){
+		$wpdb->query("UNLOCK TABLES");
+		return NULL;
+	} 
+	$id = $wpdb->insert_id;
+	global $dash_key_base;
+	$key_id = $id + $dash_key_base;
+	$key = hexToStr($key_id);
+	//echo "id:".$id.", key:".$key.", keyid:".$key_id.", base:".$dash_key_base."\n";
+	$wpdb->update(
+			DASH_URL_INFO_TABLE,
+			array(
+				'dash_key' => $key
+			),
+			array(
+				'id' => $id,
+			),
+			array(
+				'%s'
+			),
+			array(
+				'%d'
+			)
+	);
+	
+	$wpdb->query("UNLOCK TABLES");
+
+	return $key;
+}
+
+function get_dash_url($key)
+{
+	if(!isset($key) || empty($key)) return NULL;
+	$url = "http://www.dashangcloud.com/sh/".$key; // had better define the prefix as a variable
+	return $url;
+}
+
+/*
+ *	return $info = ("id", "user_id", "default_money")
  */
+function get_base_info_for_dash($key)
+{
+	global $wpdb;
+	$sql = "select id, user_id, default_money from ".DASH_URL_INFO_TABLE." where dash_key = '".$key."';";
+	$info = $wpdb->get_row($sql);
+	return $info;
+}
 
 /*	Dashang Transfer Manager */
 
@@ -160,8 +274,37 @@ function dash_url_info_insert($data = array()){
 /*	Dashang History Manager */
 
 /*	New history
- *	
+ *	$record = ("dash_id", "dash_money", "referer")
  */
+function new_dash_record($user_id, $record)
+{
+	global $wpdb;
+	$ret = $wpdb->insert(
+			DASH_HISTORY_TABLE,
+			array(
+				'dash_id' => $record['dash_id'],
+				'pay_trade_no' => $record['dash_id'],
+				'pay_status' => DS_PAY_NEW,
+				'dash_money' => $record['dash_money'],
+				'dash_time' => current_time('mysql'),
+				'dash_referer' => $record['referer']
+			),
+			array(
+				'%d', '%d', '%d', '%f', '%s', '%s'
+			)
+	);
+	if($ret != 1){
+		error_log("create new history record failed, user id[".$user_id."], fee[".$record['dash_money'].", ds id[".$record["dash_id"]."], referer[".$record["referer"]."]");
+		return false;
+	}
+	$id = $wpdb->insert_id;
+	return $id;
+}
+
+function update_dash_record($user_id, $record)
+{
+	global $wpdb;
+}
 
 /*	Query history
  *	
@@ -219,40 +362,6 @@ function add_dash_site($user_id, $site)
 	echo $resp;
 }
 
-function generate_dash_key($user_id, $site, $fee)
-{
-	// check if site or fee is empty in javascript
-	if(!isset($site) || empty($site) || !isset($fee) || empty($fee)){
-		echo json_response(1, "Eorror, site or fee can't be empty.");
-		return NULL;
-	}
-	// need rebuild code !!!!!
-	$key = "9896fe";
-	return $key;
-	global $wpdb;
-	$id = $wpdb->insert(
-				DASH_SITES_TABLE,
-				array(
-					'user_id' => $user_id,
-					'site' => $site,
-					'add_time' => current_time('mysql')
-				),
-				array(
-					'%d','%s','%s'
-				)
-	);
-
-	if(!isset($id) || empty($id)){
-	} 
-	return $key;
-}
-
-function get_dash_url($key)
-{
-	if(!isset($key) || empty($key)) return NULL;
-	$url = "http://www.dashangcloud.com/sh/".$key; // had better define the prefix as a variable
-	return $url;
-}
 
 function get_dash_code($key, $size, $fee) // $size: 2,3,4
 {
