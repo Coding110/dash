@@ -10,18 +10,22 @@ function dscreate()
 	var dashname = document.getElementsByName("dashmain");
 	var a,b,c;
 	objs = new Array();
+	var n = 1;
 	for(var i=0;i<dashname.length;i++){
 		c = dashname[i].id.split("-");
-		objs[i] = createDash(c[3])
+		dashname[i].id += "-" + n;
+		objs[i] = createDash(c[3], n);
 		objs[i].dsinit();
+		n += 1;
 	}
 }
 
-function createDash(suffix) {
+function createDash(suffix, extra) {
 	var dash = new Object;
 	dash.d=null;
 	dash.flag=0;
 	dash.suffix="-"+suffix;
+	dash.extra="-"+extra;
 	dash.mainid="dash-main-id";
 	dash.imgid="dash-img-id";
 	dash.submitid="dash-submit-id";
@@ -34,7 +38,7 @@ function createDash(suffix) {
 	dash.dsinit = function(){
 		this.flag = 0;
 		this.d = document;
-		this.mainid += this.suffix;
+		this.mainid += this.suffix+this.extra;
 
 		this.d.getElementById(this.mainid).innerHTML = this.dshtml();
 		this.dsresetid();
@@ -85,6 +89,7 @@ function createDash(suffix) {
 	dash.dshtml = function(){
 		
 		var mainvalue = this.d.getElementById(this.mainid).className;
+
 		var a = mainvalue.split(" ");
 		if(a.length == 2){
 			b = a[1].split("-");
@@ -110,20 +115,20 @@ function createDash(suffix) {
 
 
 	dash.dsresetid = function(){
-		this.d.getElementById(this.imgid).setAttribute("id", this.imgid+this.suffix);
-		this.imgid += this.suffix; 
-		this.d.getElementById(this.submitid).setAttribute("id", this.submitid+this.suffix);
-		this.submitid += this.suffix; 
-		this.d.getElementById(this.alipayfreeid).setAttribute("id", this.alipayfreeid+this.suffix);
-		this.alipayfreeid += this.suffix; 
-		this.d.getElementById(this.alipay1id).setAttribute("id", this.alipay1id+this.suffix);
-		this.alipay1id += this.suffix; 
-		this.d.getElementById(this.alipaycustomid).setAttribute("id", this.alipaycustomid+this.suffix);
-		this.alipaycustomid += this.suffix; 
-		this.d.getElementById(this.dropdownid).setAttribute("id", this.dropdownid+this.suffix);
-		this.dropdownid += this.suffix; 
-		this.d.getElementById(this.yuanid).setAttribute("id", this.yuanid+this.suffix);
-		this.yuanid += this.suffix; 
+		this.d.getElementById(this.imgid).setAttribute("id", this.imgid+this.suffix+this.extra);
+		this.imgid += this.suffix+this.extra; 
+		this.d.getElementById(this.submitid).setAttribute("id", this.submitid+this.suffix+this.extra);
+		this.submitid += this.suffix+this.extra; 
+		this.d.getElementById(this.alipayfreeid).setAttribute("id", this.alipayfreeid+this.suffix+this.extra);
+		this.alipayfreeid += this.suffix+this.extra; 
+		this.d.getElementById(this.alipay1id).setAttribute("id", this.alipay1id+this.suffix+this.extra);
+		this.alipay1id += this.suffix+this.extra; 
+		this.d.getElementById(this.alipaycustomid).setAttribute("id", this.alipaycustomid+this.suffix+this.extra);
+		this.alipaycustomid += this.suffix+this.extra; 
+		this.d.getElementById(this.dropdownid).setAttribute("id", this.dropdownid+this.suffix+this.extra);
+		this.dropdownid += this.suffix+this.extra; 
+		this.d.getElementById(this.yuanid).setAttribute("id", this.yuanid+this.suffix+this.extra);
+		this.yuanid += this.suffix+this.extra; 
 	}; 
 
 	dash.dscss = function(){
