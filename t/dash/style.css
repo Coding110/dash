@@ -5482,6 +5482,17 @@ width: 100%;
 	width:200px;
 	display:inline;
 }
+#modify-account-dlg .modal-body{
+	text-align:center;
+}
+#modify-account-dlg .form-control{
+	width:200px;
+	display:inline;
+}
+.lb-info{
+	width:120px;
+	text-align:left;
+}
 .btn-default{
 	background-color: #0099cc;
     color: #ffffff;

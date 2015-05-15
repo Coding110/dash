@@ -1,7 +1,7 @@
 <h3><?php echo __('Dashang Links','dash'); ?></h3>
 <div class="panel panel-default gen-link-note">
  <div class="panel-body">
-如果您在其它平台发布内容，可以根据平台信息生成相应的代码，编辑到内容中合适的位置，以实现打赏。同时也欢迎把暂不支持的平台代码规则告诉我们。
+如果您在其它平台发布原创内容，可以根据平台信息生成相应的代码，编辑到内容中合适的位置，以实现打赏。同时也欢迎把暂不支持的平台代码规则告诉我们。
  </div>
 </div>
 <div class="gen-link-area">
@@ -12,37 +12,43 @@
 	<br>
 	<label><?php echo __('Where links using:','dash'); ?>&nbsp;</label>
 	<div class="btn-group" data-toggle="buttons">
-		<label class="btn btn-primary active">
-		  <input type="radio" name="options" id="option1" autocomplete="off" checked>微信
+		<label class="btn btn-info">
+		  <input type="radio" name="options" id="option1" autocomplete="off">微信
 		</label>
-		<label class="btn btn-primary">
+		<label class="btn btn-info">
 		  <input type="radio" name="options" id="option3" autocomplete="off">微博
 		</label>
-		<label class="btn btn-primary">
-		  <input type="radio" name="options" id="option1" autocomplete="off" checked>网易博客
+		<label class="btn btn-info">
+		  <input type="radio" name="options" id="option1" autocomplete="off">网易博客
 		</label>
-		<label class="btn btn-primary">
+		<label class="btn btn-info">
 		  <input type="radio" name="options" id="option2" autocomplete="off">新浪博客
 		</label>
-		<label class="btn btn-primary">
+		<label class="btn btn-info">
 		  <input type="radio" name="options" id="option3" autocomplete="off">QQ空间
 		</label>
-		<label class="btn btn-primary">
+		<label class="btn btn-info">
 		  <input type="radio" name="options" id="option2" autocomplete="off">CSDN博客
 		</label>
-		<label class="btn btn-primary">
+		<label class="btn btn-info">
 		  <input type="radio" name="options" id="option2" autocomplete="off">博客园
 		</label>
-		<label class="btn btn-primary">
+		<label class="btn btn-info">
 		  <input type="radio" name="options" id="option3" autocomplete="off">其他
 		</label>
 
 	</div>
 	<br>
 	<br>
-	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#add-site-dlg"><?php echo __('Generate link','dash'); ?></button>
+	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#add-site-dlg"><?php echo __('Generate link','dash'); ?></button>
 </div>
 <div class="clearfix margin_top2"></div>
+	<textarea readonly id="code-style-1" name="code-stlye" class="code_textarea_bg"></textarea>
+<div class="clearfix margin_top2"></div>
+<br>
+<br>
+<br>
+<br>
 <br>
 <div class="dash-links-history">
 	<div class="panel panel-default">
@@ -64,21 +70,21 @@
             <td>http://www.dashangcloud.com/sh/7b646c8d</td>
             <td>1</td>
             <td>朋友圈/说说</td>
-            <td><input type="button" href="#" value="快速代码" /></td>
+            <td><input class="btn btn-info" type="button" href="#" value="快速代码" /></td>
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>http://www.dashangcloud.com/sh/8b646c8d</td>
             <td>0.1</td>
             <td>微博</td>
-            <td><input type="button" href="#" value="快速代码" /></td>
+            <td><input class="btn btn-info" type="button" href="#" value="快速代码" /></td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>http://www.dashangcloud.com/sh/9b646c8d</td>
             <td>0.01</td>
             <td>博客</td>
-            <td><input type="button" href="#" value="快速代码" /></td>
+            <td><input class="btn btn-info" type="button" href="#" value="快速代码" /></td>
           </tr>
         </tbody>
       </table>

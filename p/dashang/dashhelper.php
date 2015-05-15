@@ -163,7 +163,7 @@ function dash_url_info_insert($data = array()){
 	return $wpdb->insert_id;
 }
 
-function generate_dash_key($user_id, $site, $fee)
+function generate_dash_key_json($user_id, $site, $fee)
 {
 	// check if site or fee is empty in javascript
 	if($user_id == 0 || !isset($fee) || empty($fee)){
@@ -186,6 +186,87 @@ function generate_dash_key($user_id, $site, $fee)
 		$scene = "dommain";
 	}else{
 		echo json_response(1, "Eorror, invalid argument (3)");
+		return NULL;
+	}
+
+	// test
+	//$key = "9896fe";
+	//return $key;
+
+	global $wpdb;
+
+	// find if the the current user had a key with the same $fee (improve later with checking $site )
+	$sql = "select dash_key from ".DASH_URL_INFO_TABLE." where user_id = ".$user_id." and default_money = ".$fee.";";
+	$key = $wpdb->get_col($sql);
+	if(!empty($key)){
+		return $key[0];
+	}
+
+	// create a key if not found
+	$wpdb->query("LOCK TABLES ".DASH_URL_INFO_TABLE." WRITE");
+	$ret = $wpdb->insert(
+				DASH_URL_INFO_TABLE,
+				array(
+					'user_id' => $user_id,
+					'default_money' => $fee_float,
+					'dash_type' => $type,
+					'dash_scene' => $scene,
+					'gen_time' => current_time('mysql')
+				),
+				array(
+					'%d','%f', '%s', '%s', '%s'
+				)
+	);
+	if($ret == false){
+		$wpdb->query("UNLOCK TABLES");
+		return NULL;
+	} 
+	$id = $wpdb->insert_id;
+	global $dash_key_base;
+	$key_id = $id + $dash_key_base;
+	$key = hexToStr($key_id);
+	//echo "id:".$id.", key:".$key.", keyid:".$key_id.", base:".$dash_key_base."\n";
+	$wpdb->update(
+			DASH_URL_INFO_TABLE,
+			array(
+				'dash_key' => $key
+			),
+			array(
+				'id' => $id,
+			),
+			array(
+				'%s'
+			),
+			array(
+				'%d'
+			)
+	);
+	
+	$wpdb->query("UNLOCK TABLES");
+
+	return $key;
+}
+
+function generate_dash_key($user_id, $site, $fee)
+{
+	// check if site or fee is empty in javascript
+	if($user_id == 0 || !isset($fee) || empty($fee)){
+		return NULL;
+	}
+
+	// check if $fee is double
+	if(!is_numeric($fee)){
+		return NULL;
+	}
+	$fee_float = floatval($fee);
+	$type = "web";
+	if(!isset($site) || empty($site)){
+		$type = "post";
+	}
+	if($type == "web"){
+	}else if($type == "post"){
+		$scene = "dommain";
+	}else{
 		return NULL;
 	}
 
@@ -311,15 +392,119 @@ function update_dash_record($user_id, $record)
  */
 
 
-/*	User Acount Manager */
-
-/*	Add Acount
- *	
+/*	User Acount Manager 
+ *
+ *	only one acount for one user
  */
 
-/*	Modify Acount
+/*	Add Acount Info
+ *	
+ *	Need more code to ensure the $account_info's correctness in future.	
+ */
+function add_dash_acount_info($user_id, $account_info)
+{
+	if(!isset($user_id) || empty($user_id) || !isset($account_info) || empty($account_info) || $user_id < 1){
+		echo json_response(1, "Too little information");
+		return ;
+	}
+	global $wpdb;
+	$id = $wpdb->insert(
+				DASH_ACCOUNTS_TABLE,
+				array(
+					'user_id' => $user_id,
+					'account_type' => $account_info['account_type'],
+					'account' => $account_info['account'],
+					'account_name' => $account_info['account_name'],
+					'phone_no' => $account_info['phone_no'],
+				),
+				array(
+					'%d','%s','%s','%s','%s'
+				)
+	);
+
+	if(!isset($id) || empty($id)){
+		return false;
+	}else{
+		return true;
+	} 
+}
+/*
+ *	Need more code to ensure the $account_info's correctness in future.	
+ */
+function update_dash_acount_info($user_id, $account_info)
+{
+	if(!isset($user_id) || empty($user_id) || !isset($account_info) || empty($account_info) || $user_id < 1){
+		//echo json_response(1, "Too little information");
+		return false;
+	}
+	global $wpdb;
+	$ret = $wpdb->update(
+			DASH_ACCOUNTS_TABLE,
+			array(
+				'account_type' => $account_info['account_type'],
+				'account' => $account_info['account'],
+				'account_name' => $account_info['account_name'],
+				'phone_no' => $account_info['phone_no'],
+			),
+			array(
+				'user_id' => $user_id,
+			),
+			array(
+				'%s','%s','%s','%s'
+			),
+			array(
+				'%d'
+			)
+	);
+	if($ret == false){
+		//echo json_response(1, $wpdb->last_error/*"database error"*/);
+		return false;
+	}else{
+		return true;
+	} 
+}
+
+/*	Get Acount Info
  *	
  */
+function get_dash_acount_info($user_id)
+{
+	global $wpdb;
+	$sql = "select account, account_name, phone_no from ".DASH_ACCOUNTS_TABLE." where user_id = ".$user_id.";";
+	//var_dump($sql);
+	$info = $wpdb->get_row($sql);
+	//var_dump($info);
+	return $info;
+}
+
+/*	Modify Acount Info
+ *	
+ */
+function modify_dash_acount_info($user_id, $account_info)
+{
+	global $wpdb;
+	$ret = false;
+	$sql = "select id from ".DASH_ACCOUNTS_TABLE." where user_id = ".$user_id." order by id asc;";
+	$info = $wpdb->get_col($sql);
+	//var_dump($info);
+	if(count($info) == 0){
+		// create 
+		$ret = add_dash_acount_info($user_id, $account_info);
+	}else{
+		// update
+		$ret = update_dash_acount_info($user_id, $account_info);
+	}
+	if($ret == true){
+		echo json_response(0, $account_info);
+	}else{
+		if(empty($wpdb->last_error)){
+			echo json_response(0, $account_info);
+		}else{
+			echo json_response(1, "database error");
+		}
+	}
+}
+
 
 /* Dashang Sites Manager */
 
