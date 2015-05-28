@@ -182,8 +182,8 @@ function generate_dash_key_json($user_id, $site, $fee)
 		$type = "post";
 	}
 	if($type == "web"){
-	}else if($type == "post"){
 		$scene = "dommain";
+	}else if($type == "post"){
 	}else{
 		echo json_response(1, "Eorror, invalid argument (3)");
 		return NULL;
@@ -195,8 +195,8 @@ function generate_dash_key_json($user_id, $site, $fee)
 
 	global $wpdb;
 
-	// find if the the current user had a key with the same $fee (improve later with checking $site )
-	$sql = "select dash_key from ".DASH_URL_INFO_TABLE." where user_id = ".$user_id." and default_money = ".$fee.";";
+	// find if the the current user had a key with the same $fee (improve later with checking $site or $post)
+	$sql = "select dash_key from ".DASH_URL_INFO_TABLE." where user_id = ".$user_id." and default_money = ".$fee." and dash_type = '".$type."';";
 	$key = $wpdb->get_col($sql);
 	if(!empty($key)){
 		return $key[0];
@@ -573,4 +573,38 @@ function generate_dash_code($user_id, $dash_key, $fee)
 	);
 	$resp = json_response(0, $info);
 	echo $resp;
+}
+
+function generate_link_code($user_id, $dash_key, $fee)
+{
+	if(!isset($dash_key) || empty($dash_key)){
+		$info = "Eorror, site or fee can't be empty.";
+		$resp = json_response(1, $info);
+		echo $resp;
+		return ;
+	}
+	$dash_url = get_dash_url($dash_key);
+	$info = array(
+				'ds_url' => $dash_url, 
+	);
+	$resp = json_response(0, $info);
+	echo $resp;
+}
+
+/*
+ *	$type: web, post, all, null
+ */
+function get_links_by_type($user_id, $type)
+{
+	if(!isset($user_id) || empty($user_id)) return ;
+	global $wpdb;
+	if(!isset($type) || $type == '' || $type == "all"){
+		$sql = "select dash_key, default_money from ".DASH_URL_INFO_TABLE." where user_id = ".$user_id.";";
+	}else{
+		$sql = "select dash_key, default_money from ".DASH_URL_INFO_TABLE." where user_id = ".$user_id." and dash_type = '".$type."';";
+	}
+	//error_log("[dashang] ".$sql);
+	$links = $wpdb->get_results($sql);
+	//var_dump($links);
+	return $links;
 }

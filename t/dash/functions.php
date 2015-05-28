@@ -35,7 +35,7 @@
 			
 			'slide_image' => $ImageUrl,
 			'slide_title' => '云打赏',
-			'slide_desc' => '一个按钮让您的网站支持打赏，让我们一起保护原创！',
+			'slide_desc' => '一行代码让您的网站支持打赏，让我们一起保护原创！',
 			'slide_btn_text' => 'More',
 			'slide_btn_link' => '#',
 			
@@ -47,13 +47,13 @@
 			
 			'slide_image_1' => $ImageUrl2,
 			'slide_title_1' => '支付',
-			'slide_desc_1' => '为您解决支付问题，仅需银行帐号或支付宝帐号即可。',
+			'slide_desc_1' => '支付宝与微信支付让您的读者轻松支付，我们让您收取打赏更简单。',
 			'slide_btn_text_1' => 'More',
 			'slide_btn_link_1' => '#',
 			
 			'slide_image_2' => $ImageUrl3,
 			'slide_title_2' => '保护原创',
-			'slide_desc_2' => '推动互联网文明发展，是每个互联网人的责任。',
+			'slide_desc_2' => '推动互联网文明发展，其实每个人都在努力。',
 			'slide_btn_text_2' => 'More',
 			'slide_btn_link_2' => '#',
 			
@@ -63,23 +63,23 @@
 			
 			'service_1_title'=>"网站",
 			'service_1_icons'=>"fa fa-laptop",
-			'service_1_text'=>"如果您拥有自己的网站，两行代码就可以让您的网站实现打赏，让您的原创为您带来价值。",
-			'service_1_link'=>"#",
+			'service_1_text'=>"如果您拥有自己的网站，一行代码就可以让您的网站实现打赏，让您的原创为您带来价值。",
+			'service_1_link'=>"http://www.dashangcloud.com/manager/?nav=code",
 			
-			'service_2_title'=>"微博/微信",
+			'service_2_title'=>"WAP",
 			'service_2_icons'=>"fa fa-weixin",
-			'service_2_text'=>"如果您长期潜伏在微博或微信中，一个链接同样可以实现打赏，让赞同您的人有所为。",
-			'service_2_link'=>"#",
+			'service_2_text'=>"微博/微信的分享网页、WAP网站，一行代码或一个链接可以实现打赏，让赞同您的人有所为。",
+			'service_2_link'=>"http://www.dashangcloud.com/manager/?nav=code",
 			
-			'service_3_title'=>"WAP",
-			'service_3_icons'=>"fa fa-mobile",
-			'service_3_text'=>"微信公众号文章、手机分享网页等，同一个链接让分享到任何地方的原创内容都可以实现打赏。",
-			'service_3_link'=>"#",
+			'service_3_title'=>"博客",
+			'service_3_icons'=>"fa fa-pencil-square-o",
+			'service_3_text'=>"如果您依然混迹各种博客里，一个图文链接依然可以让粉丝们打赏您的佳作。",
+			'service_3_link'=>"http://www.dashangcloud.com/manager/?nav=link",
 			
-			'service_4_title'=>"博客",
-			'service_4_icons'=>"fa fa-pencil-square-o",
-			'service_4_text'=>"如果您依然混迹各种博客里，一个图文链接依然可以让粉丝们打赏您的佳作。",
-			'service_4_link'=>"#",
+			'service_4_title'=>"支付",
+			'service_4_icons'=>"fa fa-mobile",
+			'service_4_text'=>"支持支付宝和微信支付，支付从来都很简单，就看您在我心中有多重要。",
+			'service_4_link'=>"http://www.dashangcloud.com/manager/?nav=profile",
 			
 			
 			//call out

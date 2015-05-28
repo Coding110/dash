@@ -15,6 +15,10 @@ jQuery( document ).ready(function() {
 		generating_code_request(0);
 	});
 
+	jQuery("#generating-link").click(function(){
+		generating_link_request(0);
+	});
+
 	jQuery("#modify-account-ok").click(function(){
 		modify_account();
 	});
@@ -44,16 +48,37 @@ function generating_code_request(flag)
 			resp = jQuery.parseJSON(data);
 			console.dir(resp);
 			if(resp.err == 0){
-				//alert("dashang URL: " + resp.info.ds_url);
-				//jQuery("#ds-small-sample-id").val(resp.info.s16);
-				//jQuery("#ds-small-sample-id").remove();
-				//jQuery("#ds-small-sample-id").append(resp.info.s16);
-				//jQuery("#ds-middle-sample-id").val(resp.info.s32);
-				//jQuery("#ds-large-sample-id").val(resp.info.s64);
 				jQuery("#code-style-1").val(resp.info.s16);
 				jQuery("#code-style-2").val(resp.info.s32);
 				jQuery("#code-style-3").val(resp.info.s64);
 				if(flag == 0) alert("代码生成完成。");
+			}else{
+				alert("Error: " + resp.info);
+			}
+		}).fail(function(data){
+			alert("some error");
+		});
+}
+
+function generating_link_request(flag)
+{
+	url = http_prefix + "mng/genlink"
+	fee = jQuery("#ds-default-fee").val();
+	if(fee == null || fee == ""){
+		alert("默认打赏金额不能为空。");
+		return ;
+	}
+	
+	console.dir(fee);
+	//return ;
+
+	jQuery.post(url, {fee:fee}, function(data){
+			resp = jQuery.parseJSON(data);
+			console.dir(resp);
+			if(resp.err == 0){
+				console.dir(resp.info.ds_url);
+				jQuery("#link-style-1").val(resp.info.ds_url);
+				if(flag == 0) alert("链接生成完成。");
 			}else{
 				alert("Error: " + resp.info);
 			}

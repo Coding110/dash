@@ -101,6 +101,9 @@ function dspay_api_loaded() {
 			}else if($args[2] == "gencode"){
 				$dskey = generate_dash_key_json(get_current_user_id(),$_POST['site'], $_POST['fee']);
 				generate_dash_code(get_current_user_id(), $dskey, $_POST['fee']);
+			}else if($args[2] == "genlink"){
+				$dskey = generate_dash_key_json(get_current_user_id(),'', $_POST['fee']);
+				generate_link_code(get_current_user_id(), $dskey, $_POST['fee']);
 			}else if($args[2] == "modacut"){ // modify dash account, if not exist create it
 				if(isset($_POST['account_type']) || !empty($_POST['account_type'])){
 					$account_info['account_type'] = $_POST['account_type'];

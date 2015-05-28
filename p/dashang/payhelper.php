@@ -7,6 +7,8 @@
 include_once( dirname( __FILE__ ) . '/dashhelper.php' );
 
 
+// get_browser function can parse user-agent string
+
 function rewarding($ds_key)
 {
 	// get id, user_id and dashang money from DASH_URL_INFO_TABLE
