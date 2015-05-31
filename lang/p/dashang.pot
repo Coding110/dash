@@ -1,0 +1,41 @@
+# Copyright (C) 2015 Dashang Payment API
+# This file is distributed under the same license as the Dashang Payment API package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dashang Payment API 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/dashang\n"
+"POT-Creation-Date: 2015-05-31 22:08:06+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: payhelper.php:17
+msgid "Illegal Request!"
+msgstr ""
+
+#: plugin.php:230
+msgid "Cookie nonce is invalid"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Dashang Payment API"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/Coding110"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "API for Dashang payment."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Donghua Lau"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.dashangcloud.com/"
+msgstr ""
