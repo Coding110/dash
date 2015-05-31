@@ -18,6 +18,7 @@
         </tr>
       </tbody>
     </table>
+	<button type="button" class="btn btn-info" data-toggle="modal" id="modify-password-id" onclick="window.location.href='<?php echo wp_lostpassword_url(); ?>'"><?php echo __('Modify password', 'dash'); ?></button>
 
 	<!-- account info -->
 	<div class="page-header">

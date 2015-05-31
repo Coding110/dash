@@ -170,7 +170,7 @@
 	function wl_render_title() {
 ?>
 	<meta content="云打赏, 打赏" name="keywords">
-	<meta content="一个按钮让您的网站支持打赏，一个链接让您在任何地方享受打赏，让我们一起保护原创！" name="description">
+	<meta content="一行代码让您的网站支持打赏，一个链接让您在任何地方实现打赏，让我们一起保护原创！" name="description">
 <?php
 	}
 	add_action( 'wp_head', 'wl_render_title' );

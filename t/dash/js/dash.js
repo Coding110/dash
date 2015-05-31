@@ -140,4 +140,5 @@ function modify_account(){
 			console.dir("some error");
 		});
 	jQuery('#modify-account-dlg').modal('hide');
+	loaction.reload();
 }

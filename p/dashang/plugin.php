@@ -260,3 +260,72 @@ add_action( 'auth_cookie_bad_username', 'dspay_cookie_collect_status' );
 add_action( 'auth_cookie_bad_hash',     'dspay_cookie_collect_status' );
 add_action( 'auth_cookie_valid',        'dspay_cookie_collect_status' );
 
+/*
+ *	Change login logo
+ */
+function dspay_login_logo() { 
+	echo "<style type=\"text/css\">
+        .login h1 a {
+            background-image: url(/static/ds-logo-1.2-64.png);
+            padding-bottom: 30px;
+        }
+    </style>";
+}
+add_action( 'login_enqueue_scripts', 'dspay_login_logo' );
+
+/*
+ *	Modify phpmailer default settings
+ */
+add_action( 'phpmailer_init', 'smtp_mailer_init' );
+function smtp_mailer_init ( $phpmailer ) {
+
+	// Define that we are sending with SMTP
+	//$phpmailer->isSMTP();
+
+	// The hostname of the mail server
+	//$phpmailer->Host = "smtp.qq.com";
+
+	// Use SMTP authentication (true|false)
+	//$phpmailer->SMTPAuth = true;
+
+	// SMTP port number - likely to be 25, 465 or 587
+	//$phpmailer->Port = "25";
+
+	// Username to use for SMTP authentication
+	//$phpmailer->Username = "becktu";
+
+	// Password to use for SMTP authentication
+	//$phpmailer->Password = "becktu123";
+
+	// Encryption system to use - ssl or tls
+	//$phpmailer->SMTPSecure = "tls";
+
+	$phpmailer->From = "dashangcloud@becktu.com";
+	$phpmailer->FromName = "云打赏";
+}
+
+/**
+ * Redirect user after successful login.
+ *
+ * @param string $redirect_to URL to redirect to.
+ * @param string $request URL the user is coming from.
+ * @param object $user Logged user's data.
+ * @return string
+ */
+function ds_login_redirect( $redirect_to, $request, $user ) {
+	//is there a user to check?
+	global $user;
+	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
+		//check for admins
+		if ( in_array( 'administrator', $user->roles ) ) {
+			// redirect them to the default place
+			return $redirect_to;
+		} else {
+			return home_url();
+		}
+	} else {
+		return $redirect_to;
+	}
+}
+add_filter( 'login_redirect', 'ds_login_redirect', 10, 3 );
+
