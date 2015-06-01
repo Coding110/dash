@@ -84,7 +84,6 @@
 						<?php } ?>
 					</a>
 				</div>
-				<span>(网站正在建设中，欢迎关注！)</span>
 				<!-- Menu -->
 				<div class="menu_main">				
 					<div class="navbar yamm navbar">
