@@ -19,9 +19,11 @@
 	//$ImageUrl2 = WL_TEMPLATE_DIR_URI ."/images/slide-2.jpg";
 	//$ImageUrl3 = WL_TEMPLATE_DIR_URI ."/images/slide-3.jpg";
 	$ImageUrl = WL_TEMPLATE_DIR_URI ."/images/s4-2.jpg";
-	$ImageUrl0 = WL_TEMPLATE_DIR_URI ."/images/s6.jpg";
-	$ImageUrl2 = WL_TEMPLATE_DIR_URI ."/images/s1-2.jpg";
-	$ImageUrl3 = WL_TEMPLATE_DIR_URI ."/images/s5.jpg";
+	$ImageUrl0 = WL_TEMPLATE_DIR_URI ."/images/s5-1.jpg";
+	//$ImageUrl = "";
+	//$ImageUrl0 = "";
+	//$ImageUrl2 = "";
+	//$ImageUrl3 = "";
 	return $theme_options=array(
 			//Logo and Fevicon header			
 			'upload_image_logo'=>'/static/ds-logo-1.2.png',
@@ -35,13 +37,13 @@
 			
 			'slide_image' => $ImageUrl,
 			'slide_title' => '云打赏',
-			'slide_desc' => '一行代码让您的网站支持打赏，让我们一起保护原创！',
+			'slide_desc' => '一行代码让您的网站支持打赏，一个链接让您在任何地方支持打赏，享受原创的价值！',
 			'slide_btn_text' => 'More',
 			'slide_btn_link' => '#',
 			
 			'slide_image_0' => $ImageUrl0,
 			'slide_title_0' => '云打赏',
-			'slide_desc_0' => '一个链接让您在任何地方支持打赏，享受原创的价值！',
+			'slide_desc_0' => '支付宝与微信支付让您的读者轻松支付，我们让您收取打赏更简单。',
 			'slide_btn_text_0' => 'More',
 			'slide_btn_link_0' => '#',
 			
@@ -64,22 +66,22 @@
 			'service_1_title'=>"网站",
 			'service_1_icons'=>"fa fa-laptop",
 			'service_1_text'=>"如果您拥有自己的网站，一行代码就可以让您的网站实现打赏，让您的原创为您带来价值。",
-			'service_1_link'=>"http://www.dashangcloud.com/manager/?nav=code",
+			'service_1_link'=>"/manager/?nav=code",
 			
 			'service_2_title'=>"WAP",
 			'service_2_icons'=>"fa fa-weixin",
 			'service_2_text'=>"微博/微信的分享网页、WAP网站，一行代码或一个链接可以实现打赏，让赞同您的人有所为。",
-			'service_2_link'=>"http://www.dashangcloud.com/manager/?nav=code",
+			'service_2_link'=>"/manager/?nav=code",
 			
 			'service_3_title'=>"博客",
 			'service_3_icons'=>"fa fa-pencil-square-o",
 			'service_3_text'=>"如果您依然混迹各种博客里，一个图文链接依然可以让粉丝们打赏您的佳作。",
-			'service_3_link'=>"http://www.dashangcloud.com/manager/?nav=link",
+			'service_3_link'=>"/manager/?nav=link",
 			
 			'service_4_title'=>"支付",
 			'service_4_icons'=>"fa fa-mobile",
 			'service_4_text'=>"支持支付宝和微信支付，支付从来都很简单，就看您在我心中有多重要。",
-			'service_4_link'=>"http://www.dashangcloud.com/manager/?nav=profile",
+			'service_4_link'=>"/manager/?nav=profile",
 			
 			
 			//call out

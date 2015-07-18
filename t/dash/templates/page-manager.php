@@ -1,6 +1,10 @@
 <?php //Template Name: Manager Page 
-	// check if user login
-	if(!is_user_logged_in()){ 
+	$nav = "code";
+	if(isset($_REQUEST['nav'])){
+		$nav = $_REQUEST['nav'];
+	}
+	// check if user login when profile
+	if(!is_user_logged_in() and $nav == "profile" ){ 
 		//auth_redirect();
 		wp_redirect( wp_login_url("http://".$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]) ); exit; 
 	}else{

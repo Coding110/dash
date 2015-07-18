@@ -39,7 +39,7 @@ function check_user_agent($user_agent)
 	return $result;
 }
 
-function test($argc, $argv)
+function demo($argc, $argv)
 {
 	$val = check_user_agent($argv[1]);
 
@@ -47,7 +47,7 @@ function test($argc, $argv)
 	print_r($val);
 	echo "\n";
 }
-test($argc, $argv);
+//demo($argc, $argv);
 
 /**
  * Parses a user agent string into its important parts

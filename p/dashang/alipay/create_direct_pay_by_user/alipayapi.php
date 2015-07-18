@@ -22,7 +22,8 @@
  */
 
 require_once("alipay.config.php");
-require_once("lib/alipay_submit.class.php");
+//require_once("lib/alipay_submit.class.php");
+require_once("wp-content/plugins/dashang/alipay/lib/alipay_submit.class.php");
 
 /**************************请求参数**************************/
 

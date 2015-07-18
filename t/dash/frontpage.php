@@ -6,8 +6,6 @@
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>        
-        <li data-target="#myCarousel" data-slide-to="2"></li>        
-        <li data-target="#myCarousel" data-slide-to="3"></li>        
       </ol>
       <div class="carousel-inner">		
         <div class="item active">
@@ -28,43 +26,15 @@
 				</div>
 			</div>
         </div>
-		 <div class="item">			
-		  <?php if($wl_theme_options['slide_image_0'] !='') { ?><img src="<?php echo  $wl_theme_options['slide_image_0']; ?>" class="img-responsive" alt="First slide"><?php } ?>
-			<div class="container">
-				<div class="carousel-caption">	
-					<?php if($wl_theme_options['slide_title_0'] !='') { ?> <p><strong><?php echo  $wl_theme_options['slide_title_0']; ?></strong></p>	<?php } ?>
-					<?php if($wl_theme_options['slide_desc_0'] !='') { ?> <p><?php echo  $wl_theme_options['slide_desc_0']; ?></p><?php } ?>
-					<?php if($wl_theme_options['slide_btn_text_0'] !='') { ?>
-				<!--
-					<p><a class="btn btn-lg btn-primary" target="_blank" href="<?php if($wl_theme_options['slide_btn_link_0'] !='') { echo $wl_theme_options['slide_btn_link_0']; }  ?>" role="button"><?php echo $wl_theme_options['slide_btn_text_0']; ?></a></p>
-					-->
-					<?php } ?>
-				</div>
-			</div>
-        </div>	
-		 <div class="item">			
-		  <?php if($wl_theme_options['slide_image_1'] !='') { ?><img src="<?php echo  $wl_theme_options['slide_image_1']; ?>" class="img-responsive" alt="First slide"><?php } ?>
-			<div class="container">
-				<div class="carousel-caption">	
-					<?php if($wl_theme_options['slide_title_1'] !='') { ?> <p><strong><?php echo  $wl_theme_options['slide_title_1']; ?></strong></p>	<?php } ?>
-					<?php if($wl_theme_options['slide_desc_1'] !='') { ?> <p><?php echo  $wl_theme_options['slide_desc_1']; ?></p><?php } ?>
-					<?php if($wl_theme_options['slide_btn_text_1'] !='') { ?>
-				<!--
-					<p><a class="btn btn-lg btn-primary" target="_blank" href="<?php if($wl_theme_options['slide_btn_link_1'] !='') { echo $wl_theme_options['slide_btn_link_1']; }  ?>" role="button"><?php echo $wl_theme_options['slide_btn_text_1']; ?></a></p>
-					-->
-					<?php } ?>
-				</div>
-			</div>
-        </div>	
 		<div class="item">			
-			<?php if($wl_theme_options['slide_image_2'] !='') { ?><img src="<?php echo  $wl_theme_options['slide_image_2']; ?>" class="img-responsive" alt="First slide"><?php } ?>
+			<?php if($wl_theme_options['slide_image_0'] !='') { ?><img src="<?php echo  $wl_theme_options['slide_image_0']; ?>" class="img-responsive" alt="First slide"><?php } ?>
 			<div class="container">
 				<div class="carousel-caption">	
-					<?php if($wl_theme_options['slide_title_2'] !='') { ?> <p><strong><?php echo  $wl_theme_options['slide_title_2']; ?></strong></p><?php } ?>
-					<?php if($wl_theme_options['slide_desc_2'] !='') { ?><p><?php echo  $wl_theme_options['slide_desc_2']; ?></p><?php } ?>
-					<?php if($wl_theme_options['slide_btn_text_2'] !='') { ?>
+					<?php if($wl_theme_options['slide_title_0'] !='') { ?> <p><strong><?php echo  $wl_theme_options['slide_title_0']; ?></strong></p><?php } ?>
+					<?php if($wl_theme_options['slide_desc_0'] !='') { ?><p><?php echo  $wl_theme_options['slide_desc_0']; ?></p><?php } ?>
+					<?php if($wl_theme_options['slide_btn_text_0'] !='') { ?>
 					<!--
-					<p><a class="btn btn-lg btn-primary" target="_blank" href="<?php if($wl_theme_options['slide_btn_link_2'] !='') { echo $wl_theme_options['slide_btn_link_2']; }  ?>" role="button"><?php echo $wl_theme_options['slide_btn_text_2']; ?></a></p>
+					<p><a class="btn btn-lg btn-primary" target="_blank" href="<?php if($wl_theme_options['slide_btn_link_0'] !='') { echo $wl_theme_options['slide_btn_link_0']; }  ?>" role="button"><?php echo $wl_theme_options['slide_btn_text_0']; ?></a></p>
 					-->
 					<?php } ?>
 				</div>

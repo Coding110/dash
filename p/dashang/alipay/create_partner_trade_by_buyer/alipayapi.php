@@ -62,7 +62,7 @@ require_once("wp-content/plugins/dashang/alipay/lib/alipay_submit.class.php");
         //订单描述
         $body = "";//$_POST['WIDbody'];
         //商品展示地址
-        $show_url = "";//$_POST['WIDshow_url'];
+        $show_url = $_POST['WIDshow_url'];
         //需以http://开头的完整路径，如：http://www.商户网站.com/myorder.html
         //收货人姓名
         $receive_name = "";//$_POST['WIDreceive_name'];

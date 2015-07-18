@@ -13,7 +13,12 @@ if($nav == "code"){
 	require("manager-links.php");
 }else if($nav == "profile"){
 	// 用户基本信息和支付帐号
-	require("manager-profile.php");
+	if(!is_user_logged_in()){ 
+		//auth_redirect();
+		wp_redirect( wp_login_url("http://".$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]) ); exit; 
+	}else{
+		require("manager-profile.php");
+	}
 }else{
 	echo "404";
 }
