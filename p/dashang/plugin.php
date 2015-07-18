@@ -84,10 +84,8 @@ function dspay_api_loaded() {
 	}else if(count($args) == 3){
 		if($args[1] == "alipay"){	
 			if($args[2] == "notify"){
-				echo "Alipay callback notify: ".$args[2]."\n";
 				alipay_notify();
 			}else if($args[2] == "return"){
-				echo "Alipay callback return : ".$args[2]."\n";
 				alipay_return();
 			}else{
 				header("HTTP/1.0 404 Not Found");

@@ -47,9 +47,12 @@ function rewarding($ds_key)
 	$dsid = new_dash_record($ds_info->user_id, $record);
 	$_POST['WIDout_trade_no'] = $dsid;
 	//echo $dsid;
+	dslog('INFO', "new pay request, trade no: $dsid, fee: ".$_POST['WIDtotal_fee']);
 
+	echo "<div style=\"visibility: hidden;\"";
 	include("alipay/create_direct_pay_by_user/alipayapi.php");
 	//include("alipay/alipay_wap_create_direct_pay_by_user/alipayapi.php");
+	echo "</div>";
 }
 
 function alipay_return()
@@ -71,12 +74,15 @@ function alipay_return()
 	
 		//交易状态
 		$trade_status = $_GET['trade_status'];
+
+		$buyer_email = $_GET['buyer_email'];
 	
 	    if($_GET['trade_status'] == 'TRADE_FINISHED' || $_GET['trade_status'] == 'TRADE_SUCCESS') {
-			update_dash_record($out_trade_no, $trade_no, DS_PAY_SUCCESS);
+			update_dash_record_when_return($out_trade_no, $trade_no, $buyer_email, DS_PAY_SUCCESS);
 	    }
 	    else {
 	      //echo "trade_status=".$_GET['trade_status'];
+			//dslog('INFO', "alipay return, trade no: $out_trade_no, pay trade no: $trade_no, trade status: $trade_status");
 	    }
 		dslog('INFO', "alipay notify, trade no: $out_trade_no, pay trade no: $trade_no, trade status: $trade_status");
 		//echo "验证成功<br />";
@@ -110,16 +116,19 @@ function alipay_notify()
 	
 		//交易状态
 		$trade_status = $_POST['trade_status'];
+
+		$buyer_email = $_GET['buyer_email'];
 	
 		// 还不知道这两个状态是否有影响，暂且认为都支付成功
 	    if($trade_status == 'TRADE_FINISHED') {
-			update_dash_record($out_trade_no, $trade_no, DS_PAY_SUCCESS);
+			update_dash_record_when_notify($out_trade_no, $trade_no, DS_PAY_SUCCESS);
 	    }
 	    else if ($trade_status == 'TRADE_SUCCESS') {
-			update_dash_record($out_trade_no, $trade_no, DS_PAY_SUCCESS);
-	    }
-	        
-		dslog('INFO', "alipay notify, trade no: $out_trade_no, pay trade no: $trade_no, trade status: $trade_status");
+			update_dash_record_when_notify($out_trade_no, $trade_no, DS_PAY_SUCCESS);
+	    }else{
+			dslog('INFO', "alipay notify, trade no: $out_trade_no, pay trade no: $trade_no, trade status: $trade_status");
+		}
+		dslog('INFO', "alipay notify, trade no: $out_trade_no, pay trade no: $trade_no, trade status: $trade_status, buyer email: $buyer_email");
 		echo "success";		//请不要修改或删除
 	}
 	else {

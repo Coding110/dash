@@ -86,7 +86,7 @@ function dash_tables_init(){
 		id bigint NOT NULL AUTO_INCREMENT,
 		dash_id bigint NOT NULL,
 		pay_type varchar(8) NOT NULL, 
-		pay_trade_no varchar(16) NOT NULL, 
+		pay_trade_no varchar(64) NOT NULL, 
 		pay_status int,
 		dash_user varchar(128), 
 		dash_money double,
@@ -366,7 +366,6 @@ function new_dash_record($user_id, $record)
 			array(
 				'dash_id' => $record['dash_id'],
 				'pay_type' => $record['pay_type'],
-				//'pay_trade_no' => $record['dash_id'],
 				'pay_status' => DS_PAY_NEW,
 				'dash_money' => $record['dash_money'],
 				'dash_time' => current_time('mysql'),
@@ -384,7 +383,37 @@ function new_dash_record($user_id, $record)
 	return $id;
 }
 
-function update_dash_record($id, $pay_trade_no, $trade_status)
+function update_dash_record_when_return($id, $pay_trade_no, $dash_user,  $trade_status)
+{
+	if(!isset($id) || empty($id) || 
+	   !isset($pay_trade_no) || empty($pay_trade_no) || 
+	   !isset($dash_user) || empty($dash_user) || 
+	   !isset($trade_status) || empty($trade_status)){
+		return false;
+	}
+	global $wpdb;
+	$ret = $wpdb->update(
+			DASH_HISTORY_TABLE,
+			array(
+				'pay_trade_no' => $pay_trade_no,
+				'pay_status' => $trade_status,
+				'dash_user' => $dash_user,
+			),
+			array(
+				'id' => $id,
+			),
+			array(
+				'%s', '%d', '%s'
+			),
+			array(
+				'%d'
+			)
+	);
+	dslog('INFO', "update dashang recorde when return, trade no: $id, pay trade no: $pay_trade_no, trade status: $trade_status, update result: $ret");
+	//$wpdb->print_error();
+	return $ret;
+}
+function update_dash_record_when_notify($id, $pay_trade_no, $trade_status)
 {
 	if(!isset($id) || empty($id) || !isset($pay_trade_no) || empty($pay_trade_no) || !isset($trade_status) || empty($trade_status)){
 		return false;
@@ -406,7 +435,7 @@ function update_dash_record($id, $pay_trade_no, $trade_status)
 				'%d'
 			)
 	);
-	dslog('INFO', "update dashang recorde, trade no: $id, pay trade no: $pay_trade_no, trade status: $trade_status, update result: $ret");
+	dslog('INFO', "update dashang recorde when notify, trade no: $id, pay trade no: $pay_trade_no, trade status: $trade_status, update result: $ret");
 	return $ret;
 }
 
