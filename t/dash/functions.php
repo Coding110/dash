@@ -37,7 +37,7 @@
 			
 			'slide_image' => $ImageUrl,
 			'slide_title' => '云打赏',
-			'slide_desc' => '一行代码让您的网站支持打赏，一个链接让您在任何地方支持打赏，享受原创的价值！',
+			'slide_desc' => '一行代码让您的网站支持打赏，一个链接让您在任何地方支持打赏！',
 			'slide_btn_text' => 'More',
 			'slide_btn_link' => '#',
 			
