@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Dashang Payment API 
- * Description: API for Dashang payment.
+ * Plugin Name: Dashang
+ * Description: Plugin for Dashang.
  * Author: Donghua Lau 
- * Author URI: http://www.dashangcloud.com/
+ * Author URI: http://liudonghua.net/
  * Version: 1.0.0
- * Plugin URI: https://github.com/Coding110
+ * Plugin URI: 
  */
 
 /**
