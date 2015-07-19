@@ -41,8 +41,8 @@
 			</div>
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"></i></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"></i></a>
  </div><!-- /.carousel -->
 
 <div class="feature_section1">
