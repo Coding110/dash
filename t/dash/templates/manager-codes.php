@@ -9,10 +9,14 @@
 	<?php
 		// generate code for page
 		if(empty($_POST['site']) || empty($_POST['fee'])){
-			//echo "page open first";
-			$cur_site = 'www.dashangcloud.com';
-			$cur_fee = 9.9;
-			$dskey = generate_dash_key(get_current_user_id(),$cur_site,$cur_fee);
+			if(is_user_logged_in()){ 
+				$cur_fee = 9.9;
+			}else{
+				$cur_site = 'www.dashangcloud.com';
+				$cur_fee = 9.9;
+				//$dskey = generate_dash_key(get_current_user_id(),$cur_site,$cur_fee);
+				$dskey = generate_dash_key(1,$cur_site,$cur_fee);
+			}
 		}else{
 			$cur_site = $_POST['site'];
 			$cur_fee = $_POST['fee'];
