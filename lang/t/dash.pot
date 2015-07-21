@@ -1318,7 +1318,7 @@ msgstr "修改密码"
 
 #: templates/manager-profile.php:25
 msgid "Your alipay account for dashang"
-msgstr "您用于收赏的支付宝帐呈"
+msgstr "您用于收赏的支付宝帐号"
 
 #: templates/manager-profile.php:26
 msgid "Only support alipay account now."
