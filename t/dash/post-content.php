@@ -40,7 +40,11 @@ else: ?>
 		</div>
 <style>
 </style>
-		<div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-3 aabbdd-100"></div>
+        <div class="clearfix"></div>
+        <div class="margin_top2"></div>
+		<div width="100%" align="center">
+		<div name="dashmain" id="dash-main-id-aabbdd" class="dash-main-2 aabbdd-100"></div>
 		<script type="text/javascript" charset="utf-8" src="/static/ds.js"></script>
+		</div>
 </div>
 <?php endif;?>

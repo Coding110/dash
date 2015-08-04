@@ -13,7 +13,7 @@
 	<?php //comments_template('',true); ?>
 	<div class="clearfix mar_top2"></div>
 	</div><!-- end content left side -->
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 </div><!-- end content area -->
 <div class="margin_top5"></div>	
 <?php get_footer(); ?>

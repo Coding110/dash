@@ -6,6 +6,7 @@
 		</div>
 		<?php if(!is_page()) :?>
 		<div class="one_third last">    
+			<!--
 			<div class="site-search-area">        
 				<form method="post" id="site-searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 					<div>
@@ -13,7 +14,7 @@
 						<input id="searchsubmit" value="Search" type="submit" />
 					</div>        
 				</form>
-			</div><!-- end site search -->        
+			</div>--><!-- end site search -->        
 		</div>
 		<?php endif; ?>
 	</div>
