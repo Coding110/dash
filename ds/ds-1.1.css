@@ -63,6 +63,12 @@
 	padding-left:10px;
 	padding-top:16px;
 }
+.ds-submit-alipay{
+	background-image:url('/static/alipay_logo_100x40.png') !important;
+}
+.ds-submit-wxpay{
+	background-image:url('/static/wxpay_logo_100x40.png') !important;
+}
 .ds-submit{
 	text-align:center;
 	padding-top:10px;
@@ -83,7 +89,8 @@
 	width:270px;
 }
 .ds-spec a{
-	color: blue;
+  color: blue;
+  text-decoration: none;
 }
 .ds-ali-radio .ds-alipay-custom{
   width: 40px;
@@ -97,15 +104,15 @@
 	padding-left:10px;
 }
 .ds-submit-div input{
+  width:100px;
+  height:40px;
   -webkit-border-radius: 3;
   -moz-border-radius: 3;
   border-radius: 3px;
-  font-family: Arial;
-  color: #1f1f1f;
-  font-size: 20px;
+  font-size: 0px;
   background: #ebebeb;
   padding: 2px 10px 2px 8px;
-  border: solid #a8a8a8 1px;
+  border: solid #a8a8a8 0px;
   text-decoration: none;
   margin-left: 16px;
 }

@@ -34,6 +34,7 @@ function createDash(suffix, extra) {
 	dash.alipaycustomid="ds-alipay-custom-id";
 	dash.dropdownid="ds-dropdown-id";
 	dash.yuanid="ds-yuan-id";
+	dash.urlprefix="http://www.dashangcloud.com";
 
 	dash.dsinit = function(){
 		this.flag = 0;
@@ -121,21 +122,21 @@ function createDash(suffix, extra) {
 		}
 		return "<div id=\"dash-mid-id\" class=\"dash-mid\">" + 
 				"<a href=\"javascript:void(0);\" id=\"dash-tip-id\" class=\"dash-tip\">" + 
-				"<img id=\"dash-img-id\" src=\"http://www.dashangcloud.com/static/ds-logo-1.2-64.png\" alt=\"打赏\" /></a>" + 
+				"<img id=\"dash-img-id\" src=\""+ dash.urlprefix +"/static/ds-logo-1.2-64.png\" alt=\"打赏\" /></a>" + 
 				"<div id=\"ds-dropdown-id\" class=\"ds-dropdown\" style=\"display:none;\">" + 
-				"<form target=\"_blank\" method=\"POST\" action=\"http://www.dashangcloud.com/sh/"+b[0]+"\">" +
+				"<form target=\"_blank\" method=\"POST\" action=\""+ dash.urlprefix +"/sh/"+b[0]+"\">" +
 				"<div class=\"ds-ali-radio\">" +
-				"<span><input type=\"radio\" name=\"alipay\" id=\"ds-alipay-1\" value=\""+b[1]+"\" checked/>&nbsp"+b[1]+"元</span>" +
-				"<span><input type=\"radio\" name=\"alipay\" value=\"\" id=\"ds-alipay-free\"/>&nbsp土豪随意</span>" + 
+				"<span><input type=\"radio\" name=\"fee\" id=\"ds-alipay-1\" value=\""+b[1]+"\" checked/>&nbsp"+b[1]+"元</span>" +
+				"<span><input type=\"radio\" name=\"fee\" value=\"\" id=\"ds-alipay-free\"/>&nbsp土豪随意</span>" + 
 				"<span><input type=\"text\" id=\"ds-alipay-custom-id\" class=\"ds-alipay-custom\" onkeypress='dsnum(event)' style=\"display:none;\"></span><span id=\"ds-yuan-id\" style=\"display:none;\">元</span>" +
 				"</div><br/>" +
 				"<div class=\"ds-submit-div\">" +
-				"<span class=\"pay-method-spec\">打赏支付:</span>" + 
-				"<input id=\"dash-submit-alipay\" class=\"ds-submit\" type=\"submit\" value=\"支付宝\" />" + 
-				"<input id=\"dash-submit-weixin\" class=\"ds-submit\" type=\"submit\" value=\"微信\" />" + 
+				//"<span class=\"pay-method-spec\">支付:</span>" + 
+				"<input id=\"dash-submit-alipay\" class=\"ds-submit ds-submit-alipay\" name=\"method\" type=\"submit\" value=\"alipay\" />" + 
+				"<input id=\"dash-submit-wxpay\" class=\"ds-submit ds-submit-wxpay\" name=\"method\"  type=\"submit\" value=\"wxpay\" />" + 
 				"</div>" +
 				"</form><br/>" + 
-				"<div id=\"ds-spec-id\" class=\"ds-spec\">来自<a href=\"http://www.dashangcloud.com\" target=\"_blank\">云打赏</a></div>" +
+				"<div id=\"ds-spec-id\" class=\"ds-spec\">来自<a href=\""+ dash.urlprefix +"\" target=\"_blank\">云打赏</a></div>" +
 				"</div></div>";
 	};
 
@@ -160,7 +161,7 @@ function createDash(suffix, extra) {
 	dash.dscss = function(){
 		var s = this.d.createElement("link");
 		s.type = "text/css";	 
-		s.href = "http://www.dashangcloud.com/static/ds-1.1.css";	 
+		s.href = dash.urlprefix +"/static/ds-1.1.css";	 
 		s.rel = "stylesheet";	 
 		this.d.getElementsByTagName("head")[0].appendChild(s);
 	};
