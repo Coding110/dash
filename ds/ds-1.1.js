@@ -129,13 +129,13 @@ function createDash(suffix, extra) {
 				"<span><input type=\"radio\" name=\"fee\" id=\"ds-alipay-1\" value=\""+b[1]+"\" checked/>&nbsp"+b[1]+"元</span>" +
 				"<span><input type=\"radio\" name=\"fee\" value=\"\" id=\"ds-alipay-free\"/>&nbsp土豪随意</span>" + 
 				"<span><input type=\"text\" id=\"ds-alipay-custom-id\" class=\"ds-alipay-custom\" onkeypress='dsnum(event)' style=\"display:none;\"></span><span id=\"ds-yuan-id\" style=\"display:none;\">元</span>" +
-				"</div><br/>" +
+				"</div>" +
 				"<div class=\"ds-submit-div\">" +
 				//"<span class=\"pay-method-spec\">支付:</span>" + 
 				"<input id=\"dash-submit-alipay\" class=\"ds-submit ds-submit-alipay\" name=\"method\" type=\"submit\" value=\"alipay\" />" + 
 				"<input id=\"dash-submit-wxpay\" class=\"ds-submit ds-submit-wxpay\" name=\"method\"  type=\"submit\" value=\"wxpay\" />" + 
 				"</div>" +
-				"</form><br/>" + 
+				"</form>" + 
 				"<div id=\"ds-spec-id\" class=\"ds-spec\">来自<a href=\""+ dash.urlprefix +"\" target=\"_blank\">云打赏</a></div>" +
 				"</div></div>";
 	};
