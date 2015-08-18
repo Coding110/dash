@@ -27,7 +27,7 @@
 		<?php
 		if(function_exists('get_links_by_type')){
 			$tno = 1;
-			$http_prefix = "http://www.dashangcloud.com/sh/";
+			$http_prefix = "http://" + DS_HOST + "/sh/";
 			$ds_links = get_links_by_type(get_current_user_id(), "post");
 		}
 		?>

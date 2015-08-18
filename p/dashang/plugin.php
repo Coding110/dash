@@ -4,7 +4,7 @@
  * Description: Plugin for Dashang.
  * Author: Donghua Lau 
  * Author URI: http://liudonghua.net/
- * Version: 1.0.0
+ * Version: 1.1.0
  * Plugin URI: 
  */
 
@@ -13,7 +13,8 @@
  *
  * @var string
  */
-define( 'DSPAY_API_VERSION', '1.0.0' );
+define( 'DSPAY_API_VERSION', '1.1.0' );
+define( 'DS_HOST', 'test.dashangcloud.com' );
 
 include_once( dirname( __FILE__ ) . '/payhelper.php' );
 include_once( dirname( __FILE__ ) . '/managerhelper.php' );
@@ -90,6 +91,13 @@ function dspay_api_loaded() {
 			}else{
 				header("HTTP/1.0 404 Not Found");
 				echo "Some error 2\n";
+			}
+		}else if($args[1] == "wxpay"){	
+			if($args[2] == "notify"){
+				wxpay_notify();
+			}else{
+				header("HTTP/1.0 404 Not Found");
+				echo "Some error 5\n";
 			}
 		}else if($args[1] == "mng"){	
 			if($args[2] == "test"){

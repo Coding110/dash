@@ -30,10 +30,10 @@ require_once("wp-content/plugins/dashang/alipay/lib/alipay_submit.class.php");
         $payment_type = "1";
         //必填，不能修改
         //服务器异步通知页面路径
-        $notify_url = "http://www.dashangcloud.com/sh/alipay/notify";
+        $notify_url = "http://".DS_HOST."/sh/alipay/notify";
         //需http://格式的完整路径，不能加?id=123这类自定义参数
         //页面跳转同步通知页面路径
-        $return_url = "http://www.dashangcloud.com/sh/alipay/return";
+        $return_url = "http://".DS_HOST."/sh/alipay/return";
         //需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
         //卖家支付宝帐户
         $seller_email = "becktu@163.com";

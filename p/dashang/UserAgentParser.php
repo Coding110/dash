@@ -30,8 +30,8 @@ function check_user_agent($user_agent)
 	// check program information
 	if(stristr($user_agent, 'micromessenger', true) != FALSE){  // weixin
 		$result["sub"] = "weixin";
-	//}else if(stristr($user_agent, '', true) != FALSE){  // weibo
-	//	$result["sub"] = "weibo";
+	}else if(stristr($user_agent, 'weibo', true) != FALSE){  // weibo
+		$result["sub"] = "weibo";
 	}else{
 		$result["sub"] = "browser";
 	}

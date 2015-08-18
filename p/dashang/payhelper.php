@@ -5,6 +5,7 @@
  */
 
 include_once( dirname( __FILE__ ) . '/dashhelper.php' );
+include_once( dirname( __FILE__ ) . '/UserAgentParser.php' );
 
 
 // get_browser function can parse user-agent string
@@ -18,10 +19,10 @@ function rewarding($ds_key)
 		return;
 	}
 	
-	detect_device();
+	$dev = detect_device();
+	//var_dump($dev);
 	//return;
 
-	echo "<h3>正在为您跳转到支付宝，请稍等...</h3>";
 	$_POST['WIDsubject'] = "云打赏(www.dashangcloud.com)";
 	// WIDout_trade_no is the id of DASH_TRANSFER_RECORDS_TABLE
 	$_POST['WIDseller_email'] = "dashangcloud@163.com";
@@ -29,30 +30,73 @@ function rewarding($ds_key)
 	$_POST['WIDbody'] = "您正在使用云打赏(www.dashangcloud.com)，请务必确认您打赏的对象是原创的和合法的。";
     //商品展示地址
 	$_POST['WIDshow_url'] = "http://www.dashangcloud.com/";
-	if(isset($_POST['alipay'])){
-		//$_POST['WIDprice'] = $_POST['alipay'];
-		$_POST['WIDtotal_fee'] = $_POST['alipay'];
+	if(isset($_POST['fee'])){
+		$_POST['WIDtotal_fee'] = $_POST['fee'];
 	}else{
-		//$_POST['WIDprice'] = $ds_info->default_money;
 		$_POST['WIDtotal_fee'] = $ds_info->default_money;
 	}
+	if(isset($_POST['method'])){
+		$pay_type = $_POST['method'];
+	}else{
+		$pay_type = "alipay";
+	}
+
+	// test
+	//echo "pay type: $pay_type<br/>";
+	//echo "pay fee: ".$_POST['WIDtotal_fee']."<br/>";
+	//var_dump($dev);
 
 	// new dashang history record
 	$record = array(
 				'dash_id' => $ds_info->id, 
-				'pay_type' => "alipay", 
+				'pay_type' => $pay_type, 
 				'dash_money' => floatval($_POST['WIDtotal_fee']), 
-				'referer' => $_SERVER['HTTP_REFERER']
+				'referer' => $_SERVER['HTTP_REFERER'],
+				'user_agent' => $dev['ua']
 			);
 	$dsid = new_dash_record($ds_info->user_id, $record);
 	$_POST['WIDout_trade_no'] = $dsid;
-	//echo $dsid;
 	dslog('INFO', "new pay request, trade no: $dsid, fee: ".$_POST['WIDtotal_fee']);
 
-	echo "<div style=\"visibility: hidden;\"";
-	include("alipay/create_direct_pay_by_user/alipayapi.php");
-	//include("alipay/alipay_wap_create_direct_pay_by_user/alipayapi.php");
-	echo "</div>";
+	/*
+	 *  Weixin client of windows does not support http POST
+	 */
+	if($pay_type == "wxpay"){
+		// weixin pay	
+		if(0){
+		//if(isset($dev["sub"]) && $dev["sub"] == "weixin"){
+			// Call weixin js api
+			echo "Call weixin js api if possible";
+		}else{
+			$current_dir = getcwd();
+			$plugin_dir = plugin_dir_path(__FILE__);
+			$wxpay_dir = $plugin_dir."/wxpay/example/";
+			chdir($wxpay_dir);
+			include("native.php");
+			chdir($current_dir);
+		}
+	}else{
+		// alipay	
+		if(isset($dev["sub"]) && $dev["sub"] == "weixin"){
+			// if user select alipay on Weixin, jump to wxpay and tip to him/her
+			// and call weixin js api if possible later
+			$current_dir = getcwd();
+			$plugin_dir = plugin_dir_path(__FILE__);
+			$wxpay_dir = $plugin_dir."/wxpay/example/";
+			chdir($wxpay_dir);
+			include("native.php");
+			chdir($current_dir);
+		}else{
+			echo "<h3>正在为您跳转到支付宝，请稍等...</h3>";
+			echo "<div style=\"visibility: hidden;\"";
+			include("alipay/create_direct_pay_by_user/alipayapi.php");
+			echo "</div>";
+		}
+	}
+
+	// for test
+	return ;
+
 }
 
 function alipay_return()
@@ -60,8 +104,6 @@ function alipay_return()
 	// return page after payment.
 	require_once("alipay/create_direct_pay_by_user/alipay.config.php");
 	require_once("alipay/create_direct_pay_by_user/lib/alipay_notify.class.php");
-	//require_once("alipay/alipay_wap_create_direct_pay_by_user/alipay.config.php");
-	//require_once("alipay/alipay_wap_create_direct_pay_by_user/lib/alipay_notify.class.php");
 
 	$alipayNotify = new AlipayNotify($alipay_config);
 	$verify_result = $alipayNotify->verifyReturn();
@@ -80,10 +122,6 @@ function alipay_return()
 	    if($_GET['trade_status'] == 'TRADE_FINISHED' || $_GET['trade_status'] == 'TRADE_SUCCESS') {
 			update_dash_record_when_return($out_trade_no, $trade_no, $buyer_email, DS_PAY_SUCCESS);
 	    }
-	    else {
-	      //echo "trade_status=".$_GET['trade_status'];
-			//dslog('INFO', "alipay return, trade no: $out_trade_no, pay trade no: $trade_no, trade status: $trade_status");
-	    }
 		dslog('INFO', "alipay notify, trade no: $out_trade_no, pay trade no: $trade_no, trade status: $trade_status");
 		//echo "验证成功<br />";
 	}
@@ -99,8 +137,6 @@ function alipay_notify()
 {
 	require_once("alipay/create_direct_pay_by_user/alipay.config.php");
 	require_once("alipay/create_direct_pay_by_user/lib/alipay_notify.class.php");
-	//require_once("alipay/alipay_wap_create_direct_pay_by_user/alipay.config.php");
-	//require_once("alipay/alipay_wap_create_direct_pay_by_user/lib/alipay_notify.class.php");
 	
 	// compute notify verify
 	$alipayNotify = new AlipayNotify($alipay_config);
@@ -137,12 +173,38 @@ function alipay_notify()
 	}
 }
 
+function wxpay_notify()
+{
+	echo "wxpay notify";
+	$current_dir = getcwd();
+	$plugin_dir = plugin_dir_path(__FILE__);
+	$wxpay_dir = $plugin_dir."/wxpay/example/";
+	chdir($wxpay_dir);
+
+	include_once("notify.php");
+	Log::DEBUG("begin notify");
+	$notify = new PayNotifyCallBack();
+	$notify->Handle(false);
+
+	// two trade no, pay status, payer account
+	//update_dash_record_when_notify($out_trade_no, $trade_no, DS_PAY_SUCCESS);
+	//update_dash_record_when_return($out_trade_no, $trade_no, $buyer_email, DS_PAY_SUCCESS);
+
+	chdir($current_dir);
+}
+
 /*
  *	detect if the device is iphone, Android phone, pad or PC? And wap, web, weixin, weibo?
  *	
  */
 function detect_device()
 {
+	/*
+	 * ua => User Agent
+	 * $dev = array("main" => "", "sub" => "", "ua" => "");
+	 */
 	$ua = $_SERVER['HTTP_USER_AGENT'];
-	//error_log("[user agent] ".$ua);
+	$dev = check_user_agent($ua);
+	$dev["ua"] = $ua;
+	return $dev;
 }

@@ -3,8 +3,8 @@ use strict;
 use warnings;
 use feature qw/say/;
 
-my $dir1="/data/www/dashang/";
-my $dir2="/data/www/source/dash/";
+my $dir1="/webapp/www/dashangcloud/";
+my $dir2="/home/hua/github/dash/";
 
 my @objs = (
 		[$dir1."static", $dir2."ds", "diff -r"],

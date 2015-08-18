@@ -52,90 +52,76 @@ function dash_tables_init(){
 
 	// Create a database table
 	$table_name = DASH_ACCOUNTS_TABLE;
-	$sql = "CREATE TABLE $table_name (
-		id int NOT NULL AUTO_INCREMENT,
-		user_id int NOT NULL,
-		account_type varchar(16),
-		account varchar(64),
-		account_name varchar(128),
-		phone_no varchar(16),
-		UNIQUE KEY id (id)
-	) $charset_collate;";
+	$sql = "CREATE TABLE $table_name ("
+		. "id int NOT NULL AUTO_INCREMENT,"
+		. "user_id int NOT NULL,"
+		. "account_type varchar(16),"
+		. "account varchar(64),"
+		. "account_name varchar(128),"
+		. "phone_no varchar(16),"
+		. "UNIQUE KEY id (id)"
+	. ") $charset_collate;";
 	dbDelta($sql);
 
 	// Create a database table
 	$table_name = DASH_URL_INFO_TABLE;
-	$sql = "CREATE TABLE $table_name (
-		id bigint NOT NULL AUTO_INCREMENT,
-		dash_key varchar(16) NOT NULL, 
-		user_id bigint(20) unsigned NOT NULL,
-		account_id int NOT NULL,
-		default_money double DEFAULT 1 NOT NULL,
-		dash_type varchar(8) NOT NULL, 
-		dash_scene varchar(16) NOT NULL, 
-		gen_time datetime DEFAULT '2015-02-01 00:00:00' NOT NULL,
-		UNIQUE KEY id (id),
-		UNIQUE KEY dash_key (dash_key)
-	) $charset_collate;";
+	$sql = "CREATE TABLE $table_name ("
+		. "id bigint NOT NULL AUTO_INCREMENT,"
+		. "dash_key varchar(16) NOT NULL," 
+		. "user_id bigint(20) unsigned NOT NULL,"
+		. "account_id int NOT NULL,"
+		. "default_money double DEFAULT 1 NOT NULL,"
+		. "dash_type varchar(8) NOT NULL," 
+		. "dash_scene varchar(16) NOT NULL," 
+		. "gen_time datetime DEFAULT '2015-02-01 00:00:00' NOT NULL,"
+		. "UNIQUE KEY id (id),"
+		. "UNIQUE KEY dash_key (dash_key)"
+	. ") $charset_collate;";
 	dbDelta($sql);
 
 	// Create a database table
 	// pay status: 0 - new payment, 1 - pay success, 2 - pay failed
 	$table_name = DASH_HISTORY_TABLE;
-	$sql = "CREATE TABLE $table_name (
-		id bigint NOT NULL AUTO_INCREMENT,
-		dash_id bigint NOT NULL,
-		pay_type varchar(8) NOT NULL, 
-		pay_trade_no varchar(64) NOT NULL, 
-		pay_status int,
-		dash_user varchar(128), 
-		dash_money double,
-		dash_time datetime,
-		dash_referer text, 
-		UNIQUE KEY id (id)
-	) $charset_collate;";
+	$sql = "CREATE TABLE $table_name ("
+		. "id bigint NOT NULL AUTO_INCREMENT,"
+	    . "dash_id bigint NOT NULL,"
+		. "pay_type varchar(8) NOT NULL,"
+		. "pay_trade_no varchar(64) NOT NULL,"
+		. "pay_status int,"
+		. "dash_user varchar(128)," 
+		. "dash_money double,"
+		. "dash_time datetime,"
+		. "dash_referer text," 
+		. "user_agent varchar(255)," 
+		. "UNIQUE KEY id (id)"
+	. ") $charset_collate;";
 	dbDelta($sql);
 
 	// Create a database table
 	$table_name = DASH_TRANSFER_RECORDS_TABLE;
-	$sql = "CREATE TABLE $table_name (
-		id bigint NOT NULL AUTO_INCREMENT,
-		user_id bigint(20) unsigned NOT NULL,
-		account_name varchar(128),
-		transfer_rate float,
-		transfer_money bigint,
-		transfer_time datetime,
-		UNIQUE KEY id (id)
-	) $charset_collate;";
+	$sql = "CREATE TABLE $table_name ("
+		. "id bigint NOT NULL AUTO_INCREMENT,"
+		. "user_id bigint(20) unsigned NOT NULL,"
+		. "account_name varchar(128),"
+		. "transfer_rate float,"
+		. "transfer_money bigint,"
+		. "transfer_time datetime,"
+		. "UNIQUE KEY id (id)"
+	. ") $charset_collate;";
 	dbDelta($sql);
 
 	// Create a database table
 	$table_name = DASH_SITES_TABLE;
-	$sql = "CREATE TABLE $table_name (
-		id bigint NOT NULL AUTO_INCREMENT,
-		user_id bigint(20) unsigned NOT NULL,
-		site char(255) UNIQUE,
-		add_time datetime,
-		UNIQUE KEY id (id)
-	) $charset_collate;";
+	$sql = "CREATE TABLE $table_name (" 
+		. "id bigint NOT NULL AUTO_INCREMENT,"
+		. "user_id bigint(20) unsigned NOT NULL,"
+		. "site char(255) UNIQUE,"
+		. "add_time datetime,"
+		. "UNIQUE KEY id (id)"
+	. ") $charset_collate;";
 	dbDelta($sql);
 
-	// (don't know how to work with procedure in wordpress, replace by LOCK mechanism)
-	// Create a procedure for creaing dashang URL info 
-	// Call it with write lock
-	//$sql = "DELIMITER // 
-	//		CREATE PROCEDURE create_dash_url_info ('uid' bigint(20) unsigned,'account_id' int(11),default_money double,dash_type varchar(8),dash_scene varchar(16))
-	//		BEGIN 
-	//			START TRANSACTION;
-	//			insert into ".DASH_URL_INFO_TABLE." (user_id,account_id,default_money,dash_type,dash_scene,gen_time)
-	//			values (uid,account_id,default_money,dash_type,dash_scene,now());
-	//			update ".DASH_URL_INFO_TABLE." set dash_key = HEX(".DASH_KEY_BASE." + LAST_INSERT_ID()) where id = LAST_INSERT_ID();
-	//			COMMIT;
-	//		END;//
-	//		DELIMITER;";
-	//error_log($sql);
-	//#$ret = dbDelta($sql);
-	//$wpdb->query($sql);
+
 }
 
 function dash_url_info_columns(){
@@ -332,7 +318,7 @@ function generate_dash_key($user_id, $site, $fee)
 function get_dash_url($key)
 {
 	if(!isset($key) || empty($key)) return NULL;
-	$url = "http://www.dashangcloud.com/sh/".$key; // had better define the prefix as a variable
+	$url = "http://" . DS_HOST . "/sh/".$key; // had better define the prefix as a variable
 	return $url;
 }
 
@@ -369,10 +355,11 @@ function new_dash_record($user_id, $record)
 				'pay_status' => DS_PAY_NEW,
 				'dash_money' => $record['dash_money'],
 				'dash_time' => current_time('mysql'),
-				'dash_referer' => $record['referer']
+				'dash_referer' => $record['referer'],
+				'user_agent' => $record['user_agent']
 			),
 			array(
-				'%d', '%d', '%d', '%f', '%s', '%s'
+				'%d', '%s', '%d', '%f', '%s', '%s', '%s'
 			)
 	);
 	if($ret != 1){
@@ -603,7 +590,7 @@ function add_dash_site($user_id, $site)
 function get_dash_code($key, $size, $fee) // $size: 2,3,4
 {
 	$dcode = "<div name=\"dashmain\" id=\"dash-main-id-".$key."\" class=\"dash-main-".$size." ".$key."-".$fee."\"></div>";
-	$scode = "<script type=\"text/javascript\" charset=\"utf-8\" src=\"http://www.dashangcloud.com/static/ds.js\"></script>";
+	$scode = "<script type=\"text/javascript\" charset=\"utf-8\" src=\"http://" . DS_HOST . "/static/ds.js\"></script>";
 	return $dcode.$scode;
 }
 

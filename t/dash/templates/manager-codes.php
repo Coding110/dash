@@ -12,7 +12,7 @@
 			if(is_user_logged_in()){ 
 				$cur_fee = 9.9;
 			}else{
-				$cur_site = 'www.dashangcloud.com';
+				$cur_site = DS_HOST;
 				$cur_fee = 9.9;
 				//$dskey = generate_dash_key(get_current_user_id(),$cur_site,$cur_fee);
 				$dskey = generate_dash_key(1,$cur_site,$cur_fee);
