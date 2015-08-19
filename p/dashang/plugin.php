@@ -14,7 +14,7 @@
  * @var string
  */
 define( 'DSPAY_API_VERSION', '1.1.0' );
-define( 'DS_HOST', 'test.dashangcloud.com' );
+define( 'DS_HOST', 'www.dashangcloud.com' );
 
 include_once( dirname( __FILE__ ) . '/payhelper.php' );
 include_once( dirname( __FILE__ ) . '/managerhelper.php' );
