@@ -28,7 +28,8 @@ function createDash(suffix, extra) {
 	dash.extra="-"+extra;
 	dash.mainid="dash-main-id";
 	dash.imgid="dash-img-id";
-	dash.submitid="dash-submit-alipay";
+	dash.alipay_submitid="dash-submit-alipay";
+	dash.wxpay_submitid="dash-submit-wxpay";
 	dash.alipayfreeid="ds-alipay-free";
 	dash.alipay1id="ds-alipay-1";
 	dash.alipaycustomid="ds-alipay-custom-id";
@@ -56,7 +57,11 @@ function createDash(suffix, extra) {
 		bind(b,"click",function(e){
 		    dash.dsimgclick();
 		});
-		var c = this.d.getElementById(this.submitid);
+		var c = this.d.getElementById(this.alipay_submitid);
+		bind(c,"click",function(e){
+		    dash.dssubmit();
+		});
+		var c = this.d.getElementById(this.wxpay_submitid);
 		bind(c,"click",function(e){
 		    dash.dssubmit();
 		});
@@ -81,7 +86,8 @@ function createDash(suffix, extra) {
 		while(elem)
 		{
 			if(elem.id == this.imgid 
-			 ||elem.id == this.submitid
+			 ||elem.id == this.alipay_submitid
+			 ||elem.id == this.wxpay_submitid
 			 ||elem.id == this.alipayfreeid
 			 ||elem.id == this.alipay1id
 			 ||elem.id == this.alipaycustomid
@@ -109,6 +115,7 @@ function createDash(suffix, extra) {
 
 	dash.dssubmit = function(){
 		this.d.getElementById(this.alipayfreeid).value = this.d.getElementById(this.alipaycustomid).value;
+		this.d.getElementById(this.alipayfreeid).value = this.d.getElementById(this.alipaycustomid).value;
 	};
 
 	dash.dshtml = function(){
@@ -131,7 +138,6 @@ function createDash(suffix, extra) {
 				"<span><input type=\"text\" id=\"ds-alipay-custom-id\" class=\"ds-alipay-custom\" onkeypress='dsnum(event)' style=\"display:none;\"></span><span id=\"ds-yuan-id\" style=\"display:none;\">元</span>" +
 				"</div>" +
 				"<div class=\"ds-submit-div\">" +
-				//"<span class=\"pay-method-spec\">支付:</span>" + 
 				"<input id=\"dash-submit-alipay\" class=\"ds-submit ds-submit-alipay\" name=\"method\" type=\"submit\" value=\"alipay\" />" + 
 				"<input id=\"dash-submit-wxpay\" class=\"ds-submit ds-submit-wxpay\" name=\"method\"  type=\"submit\" value=\"wxpay\" />" + 
 				"</div>" +
@@ -144,8 +150,10 @@ function createDash(suffix, extra) {
 	dash.dsresetid = function(){
 		this.d.getElementById(this.imgid).setAttribute("id", this.imgid+this.suffix+this.extra);
 		this.imgid += this.suffix+this.extra; 
-		this.d.getElementById(this.submitid).setAttribute("id", this.submitid+this.suffix+this.extra);
-		this.submitid += this.suffix+this.extra; 
+		this.d.getElementById(this.alipay_submitid).setAttribute("id", this.alipay_submitid+this.suffix+this.extra);
+		this.alipay_submitid += this.suffix+this.extra; 
+		this.d.getElementById(this.wxpay_submitid).setAttribute("id", this.wxpay_submitid+this.suffix+this.extra);
+		this.wxpay_submitid += this.suffix+this.extra; 
 		this.d.getElementById(this.alipayfreeid).setAttribute("id", this.alipayfreeid+this.suffix+this.extra);
 		this.alipayfreeid += this.suffix+this.extra; 
 		this.d.getElementById(this.alipay1id).setAttribute("id", this.alipay1id+this.suffix+this.extra);

@@ -28,11 +28,15 @@ $notify = new NativePay();
  * 3、支付完成之后，微信服务器会通知支付成功
  * 4、在支付成功通知中需要查单确认是否真正支付成功（见：notify.php）
  */
+
+$total_fee = intval(floatval($_POST['WIDtotal_fee']) * 100); 
 $input = new WxPayUnifiedOrder();
-$input->SetBody("云打赏 body");
-$input->SetAttach("云打赏 attach");
+#$input->SetBody("云打赏");
+$input->SetBody($_POST['WIDsubject']);
+$input->SetAttach($_POST['WIDout_trade_no']);
+$input->SetDetail($_POST['WIDbody']);
 $input->SetOut_trade_no(WxPayConfig::MCHID.date("YmdHis"));
-$input->SetTotal_fee($_POST['WIDtotal_fee']);
+$input->SetTotal_fee($total_fee);
 $input->SetTime_start(date("YmdHis"));
 $input->SetTime_expire(date("YmdHis", time() + 600));
 $input->SetGoods_tag("打赏");
@@ -41,7 +45,7 @@ $input->SetTrade_type("NATIVE");
 $input->SetProduct_id($_POST['WIDout_trade_no']);
 $result = $notify->GetPayUrl($input);
 $url2 = $result["code_url"];
-#$url2 = "#";
+$qrcode_url = plugins_url()."/dashang/wxpay/example/qrcode.php?data=".urlencode($url2);
 ?>
 
 <html>
@@ -56,7 +60,7 @@ $url2 = $result["code_url"];
 
 	<div style="width:200px;">
 		<div style="width:200px;font-size:20px;font-weight: bolder;">云打赏——微信支付</div><br/>
-		<img alt="微信扫码支付" src="http://paysdk.weixin.qq.com/example/qrcode.php?data=<?php echo urlencode($url2);?>" style="width:150px;height:150px;"/>
+		<img alt="微信扫码支付" src="<?php echo $qrcode_url; ?>" style="width:150px;height:150px;"/>
 	</div>
 
 	<br/>

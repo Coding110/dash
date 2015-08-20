@@ -20,8 +20,6 @@ function rewarding($ds_key)
 	}
 	
 	$dev = detect_device();
-	//var_dump($dev);
-	//return;
 
 	$_POST['WIDsubject'] = "云打赏(www.dashangcloud.com)";
 	// WIDout_trade_no is the id of DASH_TRANSFER_RECORDS_TABLE
@@ -40,11 +38,6 @@ function rewarding($ds_key)
 	}else{
 		$pay_type = "alipay";
 	}
-
-	// test
-	//echo "pay type: $pay_type<br/>";
-	//echo "pay fee: ".$_POST['WIDtotal_fee']."<br/>";
-	//var_dump($dev);
 
 	// new dashang history record
 	$record = array(
@@ -175,7 +168,6 @@ function alipay_notify()
 
 function wxpay_notify()
 {
-	echo "wxpay notify";
 	$current_dir = getcwd();
 	$plugin_dir = plugin_dir_path(__FILE__);
 	$wxpay_dir = $plugin_dir."/wxpay/example/";
@@ -183,12 +175,8 @@ function wxpay_notify()
 
 	include_once("notify.php");
 	Log::DEBUG("begin notify");
-	$notify = new PayNotifyCallBack();
+	$notify = new PayNotifyCallBack(); // update in the class
 	$notify->Handle(false);
-
-	// two trade no, pay status, payer account
-	//update_dash_record_when_notify($out_trade_no, $trade_no, DS_PAY_SUCCESS);
-	//update_dash_record_when_return($out_trade_no, $trade_no, $buyer_email, DS_PAY_SUCCESS);
 
 	chdir($current_dir);
 }
