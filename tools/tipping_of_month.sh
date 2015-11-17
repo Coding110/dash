@@ -9,7 +9,7 @@ user=$1
 passwd=$2
 dbname=$3
 start_date=$4
-interval=1
+interval=10
 
 function query()
 {
